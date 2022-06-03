@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.guest', ['pageSlug' => 'welcome'])
 
 @section('content')
-    <div class="header py-7 py-lg-8">
+<div class="header py-7 py-lg-8">
         <div class="container">
             <div class="header-body text-center mb-7">
                 <div class="row justify-content-center">

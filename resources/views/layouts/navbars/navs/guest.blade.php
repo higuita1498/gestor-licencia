@@ -17,11 +17,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
+                @auth
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link text-primary">
                         <i class="tim-icons icon-minimal-left"></i> {{ __('Back to Dashboard') }}
                     </a>
                 </li>
+                @endauth
+
+                @guest
+
                 <li class="nav-item ">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ __('Register') }}
@@ -32,6 +37,9 @@
                         <i class="tim-icons icon-single-02"></i> {{ __('Login') }}
                     </a>
                 </li>
+                @endguest
+
+
             </ul>
         </div>
     </div>
