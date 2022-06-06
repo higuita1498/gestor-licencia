@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Partner;
 use Illuminate\Database\Seeder;
 
 class PartnerSeeder extends Seeder
@@ -11,6 +12,6 @@ class PartnerSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Partner::class, 10)->create();
     }
 }

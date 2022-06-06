@@ -23,8 +23,8 @@
                     <p>Generar Keys</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'maps') class="active " @endif>
-                <a href="javascript:void(0)">
+            <li @if ($pageSlug == 'users') class="active " @endif>
+                <a href="{{ route('user.index') }}">
                     <i class="tim-icons icon-single-02"></i>
                     <p>Usuarios</p>
                 </a>
