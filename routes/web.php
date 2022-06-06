@@ -19,17 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function () {
 
-Route::get('pages/icons', 'PageController@icons')->name('pages.icons');
-Route::get('pages/maps', 'PageController@maps')->name('pages.maps');
-Route::get('pages/notifications', 'PageController@notifications')->name('pages.notifications');
-Route::get('pages/tables', 'PageController@tables')->name('pages.tables');
-Route::get('pages/typography', 'PageController@typography')->name('pages.typography');
-Route::get('pages/rtl', 'PageController@rtl')->name('pages.rtl');
-Route::get('pages/upgrade', 'PageController@upgrade')->name('pages.upgrade');
-Route::get('user', 'UserController@index')->name('user.index');
-Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
-Route::get('profile/update', 'ProfileController@update')->name('profile.update');
-Route::get('profile/password', 'ProfileController@password')->name('profile.password');
-
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('pages/icons', 'PageController@icons')->name('pages.icons');
+    Route::get('pages/maps', 'PageController@maps')->name('pages.maps');
+    Route::get('pages/notifications', 'PageController@notifications')->name('pages.notifications');
+    Route::get('pages/tables', 'PageController@tables')->name('pages.tables');
+    Route::get('pages/typography', 'PageController@typography')->name('pages.typography');
+    Route::get('pages/rtl', 'PageController@rtl')->name('pages.rtl');
+    Route::get('pages/upgrade', 'PageController@upgrade')->name('pages.upgrade');
+    Route::get('user', 'UserController@index')->name('user.index');
+    Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
+    Route::get('profile/update', 'ProfileController@update')->name('profile.update');
+    Route::get('profile/password', 'ProfileController@password')->name('profile.password');
+});
