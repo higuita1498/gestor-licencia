@@ -29,7 +29,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pages/typography', 'PageController@typography')->name('pages.typography');
     Route::get('pages/rtl', 'PageController@rtl')->name('pages.rtl');
     Route::get('pages/upgrade', 'PageController@upgrade')->name('pages.upgrade');
-    Route::get('user', 'UserController@index')->name('user.index');
+
+    Route::get('users', 'UserController@index')->name('users.index');
+    Route::get('users/edit', 'UserController@edit')->name('users.edit');
+    Route::get('users/destroy', 'UserController@destroy')->name('users.destroy');
+    
     Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
     Route::get('profile/update', 'ProfileController@update')->name('profile.update');
     Route::get('profile/password', 'ProfileController@password')->name('profile.password');

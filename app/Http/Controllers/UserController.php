@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -14,8 +13,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\View\View
      */
-    public function index(User $user)
+    public function index(Request $request)
     {
-        return view('users.index', ['users' => $user->paginate(15)]);
+        $users = User::with('partner', 'role')->paginate(10);
+
+        return view('users.index', compact('users'));
     }
 }

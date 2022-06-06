@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li @if ($pageSlug == 'users') class="active " @endif>
-                <a href="{{ route('user.index') }}">
+                <a href="{{ route('users.index') }}">
                     <i class="tim-icons icon-single-02"></i>
                     <p>Usuarios</p>
                 </a>
