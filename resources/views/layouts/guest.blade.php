@@ -10,16 +10,16 @@
 
     <title>{{ config('app.name', 'Black Dashboard') }}</title>
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="76x76" href="dark/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="dark/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('dark/img/apple-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('dark/img/favicon.png') }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Icons -->
-    <link href="dark/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="{{ asset('dark/css/nucleo-icons.css') }}" rel="stylesheet" />
     <!-- CSS -->
-    <link href="dark/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <link href="dark/css/theme.css" rel="stylesheet" />
+    <link href="{{ asset('dark/css/black-dashboard.css?v=1.0.0') }}" rel="stylesheet" />
+    <link href="{{ asset('dark/css/theme.css') }}" rel="stylesheet" />
 </head>
 
 <body class="{{ $class ?? '' }}">
@@ -72,20 +72,20 @@
             </ul>
         </div>
     </div>
-    <script src="dark/js/core/jquery.min.js"></script>
-    <script src="dark/js/core/popper.min.js"></script>
-    <script src="dark/js/core/bootstrap.min.js"></script>
-    <script src="dark/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="{{ asset('dark/js/core/jquery.min.js') }}"></script>
+    <script src="{{ asset('dark/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('dark/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('dark/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
     <!--  Google Maps Plugin    -->
     <!-- Place this tag in your head or just before your close body tag. -->
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
     <!-- Chart JS -->
-    {{-- <script src="dark/js/plugins/chartjs.min.js"></script> --}}
+    {{-- <script src="{{ asset('dark/js/plugins/chartjs.min.js') }}"></script> --}}
     <!--  Notifications Plugin    -->
-    <script src="dark/js/plugins/bootstrap-notify.js"></script>
+    <script src="{{ asset('dark/js/plugins/bootstrap-notify.js') }}"></script>
 
-    <script src="dark/js/black-dashboard.min.js?v=1.0.0"></script>
-    <script src="dark/js/theme.js"></script>
+    <script src="{{ asset('dark/js/black-dashboard.min.js?v=1.0.0') }}"></script>
+    <script src="{{ asset('dark/js/theme.js') }}"></script>
 
     @stack('js')
 

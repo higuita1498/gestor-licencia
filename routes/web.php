@@ -30,4 +30,6 @@ Route::get('pages/rtl', 'PageController@rtl')->name('pages.rtl');
 Route::get('pages/upgrade', 'PageController@upgrade')->name('pages.upgrade');
 Route::get('user', 'UserController@index')->name('user.index');
 Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
+Route::get('profile/update', 'ProfileController@update')->name('profile.update');
+Route::get('profile/password', 'ProfileController@password')->name('profile.password');
 
