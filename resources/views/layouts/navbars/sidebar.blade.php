@@ -31,8 +31,14 @@
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="{{ $pageSlug == 'users' ?  'collapse show' : 'collapse' }}" id="laravel-examples">
+                <div class="{{ $pageSlug == 'create-users' ?  'collapse show' : 'collapse' }}" id="laravel-examples">
                     <ul class="nav pl-4">
+                        <li @if ($pageSlug=='create-users' ) class="active " @endif>
+                            <a href="{{ route('users.create') }}">
+                                <i class="tim-icons icon-simple-add"></i>
+                                <p>Nuevo usuario</p>
+                            </a>
+                        </li>
                         <li @if ($pageSlug=='users' ) class="active " @endif>
                             <a href="{{ route('users.index') }}">
                                 <i class="tim-icons icon-single-02"></i>

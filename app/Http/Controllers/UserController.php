@@ -6,6 +6,9 @@ use App\Models\City;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Partner;
+use App\Models\Role;
+
 class UserController extends Controller
 {
     /**
@@ -19,6 +22,19 @@ class UserController extends Controller
         $users = User::with('partner', 'role', 'city.department.country')->paginate(10);
 
         return view('users.index', compact('users'));
+    }
+
+    /**
+     * Show the form for creating a new user
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
+        $roles = Role::select('name', 'id');
+        $cities = City::select('name', 'id')->get();
+        $partners = Partner::select('name', 'id')->get();
+        return  view('users.create', compact('roles', 'cities', 'partners'));
     }
 
     public function edit(User $user)
