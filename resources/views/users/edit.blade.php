@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 pr-md-1">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('First Name') }}</label>
                                 <input type="text" class="form-control" placeholder="{{ __('Company') }}" value="{{ $user->name }}">
@@ -44,31 +44,43 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('Address') }}</label>
                                 <input type="text" class="form-control" placeholder="{{ __('Address') }}" value="{{ $user->address }}">
                             </div>
                         </div>
+                        <div class="col-md-6 pl-md-1">
+                            <div class="form-group">
+                                <label>{{ __('Document Number') }}</label>
+                                <input type="number" class="form-control" placeholder="{{ __('Document Number') }}" value="{{ $user->identification_number }}">
+                            </div>
+                        </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-4 pr-md-1">
                             <div class="form-group">
                                 <label>{{ __('City') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('City') }}" value="Mike">
+                                    <select type="text" class="form-control" style="background-color: #2b3553;" title="{{ __('City') }}" >
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city->id }}" {{ $user->city_id == $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4 px-md-1">
                             <div class="form-group">
                                 <label>{{ __('Country') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Country') }}" value="Andrew">
+                                <input type="text" class="form-control" disabled placeholder="{{ __('Country') }}" value="{{ isset($user->city->department->country) ? $user->city->department->country->name : ''  }}">
                             </div>
                         </div>
                         <div class="col-md-4 pl-md-1">
                             <div class="form-group">
                                 <label>{{ __('Postal Code') }}</label>
-                                <input type="number" class="form-control" placeholder="ZIP Code">
+                                <input type="number" class="form-control" placeholder="ZIP Code" value="{{ $user->postal_code }}">
                             </div>
                         </div>
                     </div>
@@ -83,42 +95,8 @@
                 </form>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary">{{ __('Save') }}</button>
+                <button type="submit" class="btn btn-fill btn-primary float-right">{{ __('Save') }}</button>
             </div>
-        </div>
-
-
-        <div class="card">
-            <div class="card-header">
-                <h5 class="title">{{ __('Password') }}</h5>
-            </div>
-            <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
-                <div class="card-body">
-                    @csrf
-                    @method('put')
-
-                    @include('alerts.success', ['key' => 'password_status'])
-
-                    <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
-                        <label>{{ __('Current Password') }}</label>
-                        <input type="password" name="old_password" class="form-control{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
-                        @include('alerts.feedback', ['field' => 'old_password'])
-                    </div>
-
-                    <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                        <label>{{ __('New Password') }}</label>
-                        <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('New Password') }}" value="" required>
-                        @include('alerts.feedback', ['field' => 'password'])
-                    </div>
-                    <div class="form-group">
-                        <label>{{ __('Confirm New Password') }}</label>
-                        <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm New Password') }}" value="" required>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-fill btn-primary">{{ __('Change password') }}</button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -133,8 +111,8 @@
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
                     <a href="#">
-                        <img class="avatar" src="{{ asset('dark/img/emilyz.jpg') }}" alt="">
-                        <h5 class="title">{{ auth()->user()->name }}</h5>
+                        <img class="avatar" src="{{ $user->photo }}" alt="">
+                        <h5 class="title">{{ $user->name }}</h5>
                     </a>
                     <p class="description">
                         {{ __('Ceo/Co-Founder') }}

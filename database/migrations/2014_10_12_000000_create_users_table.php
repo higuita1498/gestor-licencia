@@ -29,7 +29,6 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id')->nullable();
             $table->foreignId('partner_id')->nullable();
             $table->foreignId('city_id')->nullable();
-            $table->foreignId('country_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

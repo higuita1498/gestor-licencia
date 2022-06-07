@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'status', 'partner_id', 'role_id', 'username', 'address', 'postal_code', 'city_id', 'country_id', 'photo', 'lastname', 'identification_number',
+        'name', 'email', 'password', 'status', 'partner_id',
+        'role_id', 'username', 'address', 'postal_code', 'city_id',
+        'photo', 'lastname', 'identification_number',
     ];
 
     /**
@@ -47,4 +49,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Models\Role');
     }
+
+    public function city()
+    {
+        return $this->belongsTo('App\Models\City');
+    }
+
+    
 }
