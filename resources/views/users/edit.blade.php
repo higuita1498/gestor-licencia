@@ -120,7 +120,7 @@
                         <div class="block block-four"></div>
                         <a href="#">
                             <img class="avatar" src="{{ $user->photo }}" alt="">
-                            <h5 class="title">{{ $user->name }}</h5>
+                            <h5 class="{{ $user->status ? 'title text-success' : 'title text-danger' }}"><i class="tim-icons icon-button-power mr-1"></i> {{ $user->name }}</h5>
                         </a>
                         <p class="description">
                             {{ __('Ceo/Co-Founder') }}
