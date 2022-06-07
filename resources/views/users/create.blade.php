@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Editar usuario'), 'pageSlug' => 'users'])
+@extends('layouts.app', ['page' => __('Crear usuario'), 'pageSlug' => 'create-users'])
 
 @section('content')
 <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
