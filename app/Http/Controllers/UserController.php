@@ -19,4 +19,10 @@ class UserController extends Controller
 
         return view('users.index', compact('users'));
     }
+
+    public function edit(User $user)
+    {
+        $user->load('partner', 'role');
+        return view('users.edit', compact('user'));
+    }
 }
