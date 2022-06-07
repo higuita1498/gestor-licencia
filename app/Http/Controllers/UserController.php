@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -27,5 +28,13 @@ class UserController extends Controller
         $cities = City::all();
 
         return view('users.edit', compact('user', 'cities'));
+    }
+
+
+    public function update(UserRequest $request, User $user)
+    {
+        $user->update($request->all());
+
+        return redirect()->route('users.index')->withStatus(__('User successfully updated.'));
     }
 }

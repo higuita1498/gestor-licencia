@@ -146,6 +146,22 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "company" => "empresa",
+        "firstname" => "nombres",
+        "lastname" => "apellidos",
+        "username" => "nombre de usuario",
+        "email" => "correo electrónico",
+        "address" => "dirección",
+        "city" => "ciudad",
+        "state" => "estado",
+        "zip" => "código postal",
+        "country" => "país",
+        "postal code" => "código postal",
+        "phone" => "teléfono",
+        "about me" => "sobre mí",
+        "document number" => "número de documento",
+        "identification_number" => "número de documento"
+    ],
 
 ];

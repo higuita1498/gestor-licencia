@@ -1,3 +1,3 @@
-@if ($errors->has($field))
-    <span class="invalid-feedback" role="alert">{{ $errors->first($field) }}</span>
-@endif
+@error($field)
+<small class="text-danger">{{ $message }}</small>
+@enderror
