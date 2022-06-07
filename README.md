@@ -33,6 +33,11 @@ Next config your database and use:
 php artisan migrate
 ```
 
+Or config your database using seeds:
+```
+php artisan migrate --seed
+```
+
 now you can compile the assets:
 ```
 npm install && npm run dev
