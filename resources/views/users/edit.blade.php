@@ -98,7 +98,7 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label>{{ __('About Me') }}</label>
-                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"  name="biography">{{ $user->biography }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                     </div>
                     </p>
                     <div class="card-description">
-                        {{ __('Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...') }}
+                        {{ $user->biography }}
                     </div>
                 </div>
                 <div class="card-footer">

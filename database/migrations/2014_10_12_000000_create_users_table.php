@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('password');
             $table->bigInteger('postal_code')->nullable();
+            $table->longText('biography')->nullable();
             $table->foreignId('role_id')->nullable();
             $table->foreignId('partner_id')->nullable();
             $table->foreignId('city_id')->nullable();
