@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
-
+use App\Http\Requests\UpdateUserRequest;
 class UserController extends Controller
 {
     /**
@@ -31,7 +30,7 @@ class UserController extends Controller
     }
 
 
-    public function update(UserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->all());
 
