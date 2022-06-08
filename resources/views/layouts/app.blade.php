@@ -87,9 +87,10 @@
                 </ul>
             </div>
         </div>
-        <script src="{{ asset('dark/js/core/jquery.min.js') }}"></script>
-        <script src="{{ asset('dark/js/core/popper.min.js') }}"></script>
-        <script src="{{ asset('dark/js/core/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <!-- <script src="{{ asset('dark/js/core/jquery.min.js') }}"></script> -->
+        <!-- <script src="{{ asset('dark/js/core/popper.min.js') }}"></script> -->
+        <!-- <script src="{{ asset('dark/js/core/bootstrap.min.js') }}"></script> -->
         <script src="{{ asset('dark/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
@@ -101,8 +102,6 @@
 
         <script src="{{ asset('dark/js/black-dashboard.min.js?v=1.0.0') }}"></script>
         <script src="{{ asset('dark/js/theme.js') }}"></script>
-
-        @stack('js')
 
         <script>
             $(document).ready(function() {
