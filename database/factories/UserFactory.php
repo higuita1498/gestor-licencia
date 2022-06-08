@@ -21,7 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'photo' => $faker->imageUrl(300, 300, 'people'),
-        'lastname' => $faker->lastName,
+        'last_name' => $faker->lastName,
         'biography' => $faker->paragraph(),
         'postal_code' => $faker->postcode(),
         'username' => $faker->unique()->username(),

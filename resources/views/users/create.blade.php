@@ -49,8 +49,8 @@
                         <div class="col-md-6 pl-md-1">
                             <div class="form-group">
                                 <label>{{ __('Last Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Last Name') }}" name="lastname" value="">
-                                @include('alerts.feedback', ['field' => 'lastname'])
+                                <input type="text" class="form-control" placeholder="{{ __('Last Name') }}" name="last_name" value="">
+                                @include('alerts.feedback', ['field' => 'last_name'])
                             </div>
                         </div>
                     </div>

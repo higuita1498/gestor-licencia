@@ -157,11 +157,19 @@ return [
         "state" => "estado",
         "zip" => "código postal",
         "country" => "país",
-        "postal code" => "código postal",
+        "postal_code" => "código postal",
         "phone" => "teléfono",
-        "about me" => "sobre mí",
+        "biography" => "biografía",
         "document number" => "número de documento",
-        "identification_number" => "número de documento"
+        "identification_number" => "número de documento",
+        'city_id' => 'ciudad',
+        'name' => 'nombre',
+        'last_name' => 'apellido',
+        'password' => 'contraseña',
+        'password_confirmation' => 'confirmación de contraseña',
+        'country_id' => 'país',
+        'state_id' => 'estado',
+        'postal_code' => 'código postal',       
     ],
 
 ];

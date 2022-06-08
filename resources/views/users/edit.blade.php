@@ -45,8 +45,8 @@
                         <div class="col-md-6 pl-md-1">
                             <div class="form-group">
                                 <label>{{ __('Last Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Last Name') }}" name="lastname" value="{{ $user->lastname }}">
-                                @include('alerts.feedback', ['field' => 'lastname'])
+                                <input type="text" class="form-control" placeholder="{{ __('Last Name') }}" name="last_name" value="{{ $user->last_name }}">
+                                @include('alerts.feedback', ['field' => 'last_name'])
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label>{{ __('About Me') }}</label>
-                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"  name="biography">{{ $user->biography }}</textarea>
+                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"  name="biography" >{{ $user->biography }}</textarea>
                             </div>
                         </div>
                     </div>

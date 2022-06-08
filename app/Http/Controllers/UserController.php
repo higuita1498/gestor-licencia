@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\City;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::with('partner', 'role', 'city.department.country')->paginate(10);
+        $users = User::with('partner', 'role', 'city.department.country')->latest()->paginate(10);
 
         return view('users.index', compact('users'));
     }
@@ -35,6 +36,33 @@ class UserController extends Controller
         $cities = City::select('name', 'id')->get();
         $partners = Partner::select('name', 'id')->get();
         return  view('users.create', compact('roles', 'cities', 'partners'));
+    }
+
+    /**
+     * Store a new user
+     *
+     * @param  \App\Http\Requests\UserRequest  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(StoreUserRequest $request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->last_name = $request->last_name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->partner_id = $request->partner_id;
+        $user->city_id = $request->city_id;
+        $user->role_id = $request->role_id;
+        $user->postal_code = $request->postal_code;
+        $user->identification_number = $request->identification_number;
+        $user->address = $request->address;
+        $user->biography = $request->biography;
+        $user->save();
+
+        return redirect()->route('users.index')->withStatus(__('Usuario creado con éxito.'));
     }
 
     public function edit(User $user)
