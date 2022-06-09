@@ -49,12 +49,32 @@
                 </div>
             </li>
 
-            <li @if ($pageSlug=='maps' ) class="active " @endif>
-                <a href="javascript:void(0)">
+            <li>
+                <a data-toggle="collapse" href="#partner-module" aria-expanded="{{ $pageSlug == 'partners' ?  true : false }}">
                     <i class="tim-icons icon-single-02"></i>
-                    <p>Socios</p>
+                    <span class="nav-link-text">Gestión de Socios</span>
+                    <b class="caret mt-1"></b>
                 </a>
+
+                <div class="{{ $pageSlug == 'create-partner' ?  'collapse show' : 'collapse' }}" id="partner-module">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug=='create-partner' ) class="active " @endif>
+                            <a href="{{ route('partners.create') }}">
+                                <i class="tim-icons icon-simple-add"></i>
+                                <p>Nuevo partner</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug=='partners' ) class="active " @endif>
+                            <a href="{{ route('partners.index') }}">
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>Partners</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+
+
             <li @if ($pageSlug=='maps' ) class="active " @endif>
                 <a href="javascript:void(0)">
                     <i class="tim-icons icon-settings"></i>

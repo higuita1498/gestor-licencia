@@ -23,6 +23,7 @@ class CreatePartnersTable extends Migration
             $table->bigInteger('identification_number')->unique();
             $table->bigInteger('phone_number')->nullable()->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -34,5 +35,8 @@ class CreatePartnersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('partners');
+        Schema::table('partners', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 }
