@@ -65,7 +65,8 @@
 
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-fill btn-primary float-right">{{ __('Update') }}</button>
+                    <button type="submit" class="btn btn-fill btn-primary float-right mx-1">{{ __('Update') }}</button>
+                    <a href="{{ route('partners.index') }}" class="btn btn-fill btn-default float-right mx-1">{{ __('Cancel') }}</a>
                 </div>
             </div>
         </div>
