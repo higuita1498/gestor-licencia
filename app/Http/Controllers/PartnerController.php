@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePartnerRequest;
 use App\Models\Partner;
+use App\Models\PartnerType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PartnerController extends Controller
 {
@@ -14,8 +17,11 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partners = Partner::all();
-        return view('partners.index', compact('partners'));
+        $partners = Partner::with('partnerType')->latest()->paginate(10);
+
+        $partnerTypes = PartnerType::all();
+
+        return view('partners.index', compact('partners', 'partnerTypes'));
     }
 
     /**
@@ -25,7 +31,9 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        return view('partners.create');
+        $partnerTypes = PartnerType::all();
+
+        return view('partners.create', compact('partnerTypes'));
     }
 
     /**
@@ -34,17 +42,27 @@ class PartnerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePartnerRequest $request)
     {
-        $partner = new Partner();
-        $partner->name = $request->name;
-        $partner->identification_number = $request->identification_number;
-        $partner->status = $request->status;
-        $partner->partner_type_id = $request->partner_type_id;
-        $partner->phone_number = $request->phone_number;
-        $partner->address = $request->address;
-        $partner->save();
-        return redirect()->route('partners.index');
+        try {
+
+            DB::beginTransaction();
+            $partner = new Partner();
+            $partner->name = $request->name;
+            $partner->identification_number = $request->identification_number;
+            $partner->partner_type_id = $request->partner_type_id;
+            $partner->phone_number = $request->phone_number;
+            $partner->address = $request->address;
+            $partner->save();
+            DB::commit();
+
+            return redirect()->route('partners.index');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return back()
+                ->withInput()
+                ->withErrors($th->getMessage());
+        }
     }
 
     /**
@@ -66,7 +84,8 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner)
     {
-        return view('partners.edit', compact('partner'));
+        $partnerTypes = PartnerType::all();
+        return view('partners.edit', compact('partner', 'partnerTypes'));
     }
 
     /**
@@ -78,14 +97,22 @@ class PartnerController extends Controller
      */
     public function update(Request $request, Partner $partner)
     {
-        $partner->name = $request->name;
-        $partner->identification_number = $request->identification_number;
-        $partner->status = $request->status;
-        $partner->partner_type_id = $request->partner_type_id;
-        $partner->phone_number = $request->phone_number;
-        $partner->address = $request->address;
-        $partner->save();
-        return redirect()->route('partners.index');
+        try {
+            DB::beginTransaction();
+            $partner->name = $request->name;
+            $partner->identification_number = $request->identification_number;
+            $partner->partner_type_id = $request->partner_type_id;
+            $partner->phone_number = $request->phone_number;
+            $partner->address = $request->address;
+            $partner->save();
+
+            DB::commit();
+
+            return redirect()->route('partners.index');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return back()->withErrors($th->getMessage());
+        }
     }
 
     /**

@@ -170,6 +170,7 @@ return [
         'country_id' => 'país',
         'state_id' => 'estado',
         'postal_code' => 'código postal',       
+        'phone_number' => 'número de teléfono',       
     ],
 
 ];

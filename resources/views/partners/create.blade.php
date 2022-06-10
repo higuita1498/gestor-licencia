@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Crear usuario'), 'pageSlug' => 'create-partners'])
+@extends('layouts.app', ['page' => __('Crear socio'), 'pageSlug' => 'create-partners'])
 
 @section('content')
 <form method="post" action="{{ route('partners.store') }}" enctype="multipart/form-data">
@@ -8,54 +8,18 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">Crear usuario</h5>
+                    <h5 class="title">Crear socio</h5>
                 </div>
                 <div class="card-body">
+
                     <div class="row">
-                        <div class="col-md-5 pr-md-1">
+                        <div class="mx-md-1 col-md-5">
                             <div class="form-group">
-                                <label>{{ __('Company') }}</label>
-                                <select type="text" class="form-control" name="partner_id" style="background-color: #2b3553;" title="{{ __('City') }}">
-                                    @foreach ($partners as $partner)
-                                    <option value="{{ $partner->id }}">{{ $partner->name }}</option>
-                                    @endforeach
-                                </select>
-                                @include('alerts.feedback', ['field' => 'partner_id'])
-                            </div>
-                        </div>
-                        <div class="col-md-3 px-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Username') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Username') }}" name="username" value="">
-                                @include('alerts.feedback', ['field' => 'username'])
-                            </div>
-                        </div>
-                        <div class="col-md-4 pl-md-1">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">{{ __('E-Mail Address') }}</label>
-                                <input type="email" class="form-control" placeholder="mike@email.com" name="email" value="">
-                                @include('alerts.feedback', ['field' => 'email'])
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>{{ __('First Name') }}</label>
+                                <label>{{ __('Name') }}</label>
                                 <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="name" value="">
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
                         </div>
-                        <div class="col-md-6 pl-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Last Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Last Name') }}" name="last_name" value="">
-                                @include('alerts.feedback', ['field' => 'last_name'])
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('Address') }}</label>
@@ -63,7 +27,19 @@
                                 @include('alerts.feedback', ['field' => 'address'])
                             </div>
                         </div>
-                        <div class="col-md-6 pl-md-1">
+                    </div>
+
+                    <div class="row">
+
+                        <div class="mx-md-1 col-md-5">
+                            <div class="form-group">
+                                <label>{{ __('Phone Number') }}</label>
+                                <input type="number" class="form-control" placeholder="{{ __('Phone Number') }}" name="phone_number" value="">
+                                @include('alerts.feedback', ['field' => 'phone_number'])
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('Document Number') }}</label>
                                 <input type="number" class="form-control" placeholder="{{ __('Document Number') }}" name="identification_number" value="">
@@ -73,39 +49,19 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4 pr-md-1">
+                        <div class="col-md-5 pr-md-1">
                             <div class="form-group">
-                                <label>{{ __('City') }}</label>
-                                <select type="text" class="form-control" name="city_id" style="background-color: #2b3553;" title="{{ __('City') }}">
-                                    @foreach ($cities as $city)
-                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                <label>{{ __('Partner Type') }}</label>
+                                <select type="text" class="form-control" name="partner_type_id" style="background-color: #2b3553;" title="{{ __('Partner Type') }}">
+                                    @foreach ($partnerTypes as $partnerType)
+                                    <option value="{{ $partnerType->id }}">{{ $partnerType->name }}</option>
                                     @endforeach
                                 </select>
-                                @include('alerts.feedback', ['field' => 'city_id'])
-                            </div>
-                        </div>
-                        <div class="col-md-4 px-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Country') }}</label>
-                                <input type="text" class="form-control" disabled placeholder="{{ __('Country') }}" value="">
-                            </div>
-                        </div>
-                        <div class="col-md-4 pl-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Postal Code') }}</label>
-                                <input type="number" class="form-control" placeholder="ZIP Code" name="postal_code" value="">
-                                @include('alerts.feedback', ['field' => 'postal_code'])
+                                @include('alerts.feedback', ['field' => 'partner_type_id'])
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label>{{ __('About Me') }}</label>
-                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" name="biography"></textarea>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-fill btn-primary float-right">{{ __('Save') }}</button>

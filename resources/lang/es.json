@@ -29,7 +29,7 @@
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
     "If you did not receive the email": "Si no has recibido el email",
     "click here to request another": "pulsa aquí para que te enviemos otro",
-    "All rights reserved.":  "Todos los derechos reservados.",
+    "All rights reserved.": "Todos los derechos reservados.",
     "Save": "Guardar",
     "Cancel": "Cancelar",
     "Delete": "Eliminar",
@@ -70,6 +70,9 @@
     "Country": "País",
     "Postal Code": "Código postal",
     "Phone": "Teléfono",
+    "Phone Number": "Número de teléfono",
     "About Me": "Sobre mí",
-    "Document Number": "Número de documento"
+    "Document Number": "Número de documento",
+    "Partner": "Socio",
+    "Partner Type": "Tipo de socio"
 }

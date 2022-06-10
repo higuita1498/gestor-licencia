@@ -26,4 +26,10 @@ class Partner extends Model
     protected $hidden = [
         //
     ];
+    
+
+    public function partnerType()
+    {
+        return $this->belongsTo('App\Models\PartnerType');
+    }
 }

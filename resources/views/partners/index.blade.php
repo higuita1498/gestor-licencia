@@ -1,11 +1,11 @@
-@extends('layouts.app', ['page' => __('Lista de usuarios'), 'pageSlug' => 'users'])
+@extends('layouts.app', ['page' => __('Lista de socios'), 'pageSlug' => 'partners'])
 
 @section('content')
 <div class="row">
     <div class="col-md-12">
         <div class="card ">
             <div class="card-header">
-                <h4 class="card-title"> Usuarios</h4>
+                <h4 class="card-title"> Socios</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive ps">
@@ -13,34 +13,28 @@
                         <thead class="text-primary">
                             <tr>
                                 <th>Nombre</th>
-                                <th>Correo</th>
                                 <th>Identificacion</th>
-                                <th>Role</th>
-                                <th>Partner</th>
                                 <th>Estado</th>
                                 <th>Creado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($partners as $partner)
                             <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->identification_number }}</td>
-                                <td>{{ optional($user->role)->name }}</td>
-                                <td>{{ optional($user->partner)->name }}</td>
+                                <td>{{ $partner->name }}</td>
+                                <td>{{ $partner->identification_number }}</td>
                                 <td>
-                                    @if ($user->status == 1)
+                                    @if ($partner->status == 1)
                                     <span class="badge badge-success">Activo</span>
                                     @else
                                     <span class="badge badge-danger">Inactivo</span>
                                     @endif
                                 </td>
-                                <td>{{ $user->created_at }}</td>
+                                <td>{{ $partner->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Editar</a>
-                                    <form action="{{ route('users.destroy', $user) }}" method="POST" class="d-inline">
+                                    <a href="{{ route('partners.edit', $partner) }}" class="btn btn-sm btn-primary">Editar</a>
+                                    <form action="{{ route('partners.destroy', $partner) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
@@ -51,7 +45,7 @@
                         </tbody>
                     </table>
 
-                    {{ $users->links() }}
+                    {{ $partners->links() }}
                 </div>
             </div>
         </div>
