@@ -34,10 +34,10 @@
                                 <td>{{ $partner->created_at }}</td>
                                 <td>
                                     <a href="{{ route('partners.edit', $partner) }}" class="btn btn-sm btn-primary">Editar</a>
-                                    <form action="{{ route('partners.destroy', $partner) }}" method="POST" class="d-inline">
+                                    <a class="btn btn-sm btn-danger" onclick="deletePartner('partner-{{ $partner->id }}')">Eliminar</a>
+                                    <form action="{{ route('partners.destroy', $partner) }}" method="POST" class="d-none" id="partner-{{ $partner->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
@@ -52,3 +52,24 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+<script>
+    function deletePartner(partner) {
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Se eliminará el socio seleccionado",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.value) {
+                $(`#${partner}`).submit();
+            }
+        })
+    }
+</script>
+@endpush

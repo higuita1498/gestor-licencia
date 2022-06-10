@@ -40,10 +40,10 @@
                                 <td>{{ $user->created_at }}</td>
                                 <td>
                                     <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Editar</a>
-                                    <form action="{{ route('users.destroy', $user) }}" method="POST" class="d-inline">
+                                    <a class="btn btn-sm btn-danger" onclick="deleteUser('delete-{{ $user->id }}')">Eliminar</a>
+                                    <form action="{{ route('users.destroy', $user) }}" method="POST" class="d-none" id="delete-{{ $user->id }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>
@@ -58,3 +58,24 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+<script>
+    function deleteUser(user) {
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Se eliminará el usuario seleccionado",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!',
+            cancelButtonText: 'Cancelar',
+        }).then((result) => {
+            if (result.value) {
+                $(`#${user}`).submit();
+            }
+        })
+    }
+</script>
+@endpush
