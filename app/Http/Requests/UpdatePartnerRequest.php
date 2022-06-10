@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePartnerRequest extends FormRequest
+class UpdatePartnerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class StorePartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255|unique:partners,name',
-            'identification_number' => 'required|string|max:255|unique:partners,identification_number',
+            'name' => 'required|string|max:255|unique:partners,name,' . $this->partner->id,
+            'identification_number' => 'required|string|max:255|unique:partners,identification_number,' . $this->partner->id,
             'partner_type_id' => 'required|integer',
             'phone_number' => 'required|integer',
             'address' => 'required|string|max:255',

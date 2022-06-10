@@ -16,7 +16,12 @@
                         <div class="col-md-5 pr-md-1">
                             <div class="form-group">
                                 <label>{{ __('Company') }}</label>
-                                <input type="text" class="form-control" disabled="" placeholder="{{ __('Company') }}" value="{{ optional($user->partner)->name }}">
+                                <select class="form-control" name="partner_id" style="background-color: #2b3553;" title="{{ __('Partner') }}">
+                                    @foreach ($partners as $partner)
+                                    <option value="{{ $partner->id }}" {{ $partner->id == $user->partner_id ? 'selected' : ''}}>{{ $partner->name }}</option>
+                                    @endforeach
+                                </select>
+                                @include('alerts.feedback', ['field' => 'partner_id'])
                             </div>
                         </div>
                         <div class="col-md-3 px-md-1">
@@ -98,7 +103,7 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label>{{ __('About Me') }}</label>
-                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"  name="biography" >{{ $user->biography }}</textarea>
+                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" name="biography">{{ $user->biography }}</textarea>
                             </div>
                         </div>
                     </div>

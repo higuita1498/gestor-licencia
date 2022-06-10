@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Partner;
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -69,16 +70,32 @@ class UserController extends Controller
     {
         $user->load('partner', 'role', 'city.department.country');
         $cities = City::all();
+        $partners = Partner::all();
 
-        return view('users.edit', compact('user', 'cities'));
+        return view('users.edit', compact('user', 'cities', 'partners'));
     }
 
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update($request->all());
+        try {
+            DB::beginTransaction();
+            $user->update($request->all());
 
-        return redirect()->route('users.index')->withStatus(__('User successfully updated.'));
+            if ($request->has('password')) {
+                $user->password = bcrypt($request->password);
+            }
+
+            $user->save();
+            DB::commit();
+
+            return redirect()->route('users.index')->withStatus(__('User successfully updated.'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return back()
+                ->withInput()
+                ->withErrors($th->getMessage());
+        }
     }
 
     public function destroy(User $user)

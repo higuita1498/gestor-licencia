@@ -28,9 +28,9 @@ class UpdateUserRequest extends FormRequest
             "username" => "required|unique:users,username," . $this->user->id,
             "email" => "required|unique:users,email," . $this->user->id,
             "name" => "required",
-            "lastname" => "required",
+            "last_name" => "required",
             "address" => "required",
-            "identification_number" => "required",
+            "identification_number" => "required|unique:users,identification_number," . $this->user->id,
             "city_id" => "required",
             "postal_code" => "required",
         ];
