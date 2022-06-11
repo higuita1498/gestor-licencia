@@ -171,6 +171,7 @@ return [
         'state_id' => 'estado',
         'postal_code' => 'código postal',       
         'phone_number' => 'número de teléfono',       
+        'contact_name' => 'nombre de contacto',       
     ],
 
 ];

@@ -22,9 +22,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>{{ __('Address') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Address') }}" name="address" value="">
-                                @include('alerts.feedback', ['field' => 'address'])
+                                <label>{{ __('Contact Name') }}</label>
+                                <input type="text" class="form-control" placeholder="{{ __('Contact Name') }}" name="contact_name" value="">
+                                @include('alerts.feedback', ['field' => 'contact_name'])
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-5 pr-md-1">
+                        <div class="mx-md-1 col-md-5">
+                            <div class="form-group">
+                                <label>{{ __('Address') }}</label>
+                                <input type="text" class="form-control" placeholder="{{ __('Address') }}" name="address" value="">
+                                @include('alerts.feedback', ['field' => 'address'])
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-md-1">
                             <div class="form-group">
                                 <label>{{ __('Partner Type') }}</label>
                                 <select type="text" class="form-control" name="partner_type_id" style="background-color: #2b3553;" title="{{ __('Partner Type') }}">

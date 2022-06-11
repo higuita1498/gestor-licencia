@@ -15,7 +15,7 @@ class Partner extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'identification_number', 'status', 'partner_type_id', 'phone_number', 'address',
+        'name', 'identification_number', 'status', 'partner_type_id', 'phone_number', 'address', 'contact_name'
     ];
 
     /**

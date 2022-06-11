@@ -12,8 +12,10 @@
                     <table class="table tablesorter w-100" id="">
                         <thead class="text-primary">
                             <tr>
-                                <th>Nombre</th>
-                                <th>Identificacion</th>
+                                <th>Socio</th>
+                                <th>Contacto</th>
+                                <th>Identificación</th>
+                                <th>Teléfono</th>
                                 <th>Estado</th>
                                 <th>Creado</th>
                                 <th>Acciones</th>
@@ -23,7 +25,9 @@
                             @foreach ($partners as $partner)
                             <tr>
                                 <td>{{ $partner->name }}</td>
+                                <td>{{ $partner->contact_name }}</td>
                                 <td>{{ $partner->identification_number }}</td>
+                                <td>{{ $partner->phone_number }}</td>
                                 <td>
                                     @if ($partner->status == 1)
                                     <span class="badge badge-success">Activo</span>

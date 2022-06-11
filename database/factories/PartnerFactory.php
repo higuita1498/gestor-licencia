@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 $factory->define(Partner::class, function (Faker $faker) {
     return [
         'name' => $faker->company(),
+        'contact_name' => $faker->name,
         'identification_number' => $faker->unique()->randomNumber(8),
         'status' => random_int(0,1),
         'partner_type_id' => random_int(1,10),

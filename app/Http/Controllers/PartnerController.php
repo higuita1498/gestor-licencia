@@ -49,6 +49,7 @@ class PartnerController extends Controller
             DB::beginTransaction();
             $partner = new Partner();
             $partner->name = $request->name;
+            $partner->contact_name = $request->contact_name;
             $partner->identification_number = $request->identification_number;
             $partner->partner_type_id = $request->partner_type_id;
             $partner->phone_number = $request->phone_number;
@@ -100,6 +101,7 @@ class PartnerController extends Controller
         try {
             DB::beginTransaction();
             $partner->name = $request->name;
+            $partner->contact_name = $request->contact_name;
             $partner->identification_number = $request->identification_number;
             $partner->partner_type_id = $request->partner_type_id;
             $partner->phone_number = $request->phone_number;
