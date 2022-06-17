@@ -3,6 +3,9 @@
 @section('content')
 <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
     @csrf
+
+    @include('alerts.success')
+
     <div class="row">
 
         <div class="col-md-8">
@@ -23,57 +26,17 @@
                                 @include('alerts.feedback', ['field' => 'partner_id'])
                             </div>
                         </div>
-                        <div class="col-md-3 px-md-1">
+                        <div class="col-md-5 px-md-1">
                             <div class="form-group">
                                 <label>{{ __('Username') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Username') }}" name="username" value="">
-                                @include('alerts.feedback', ['field' => 'username'])
-                            </div>
-                        </div>
-                        <div class="col-md-4 pl-md-1">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">{{ __('E-Mail Address') }}</label>
-                                <input type="email" class="form-control" placeholder="mike@email.com" name="email" value="">
-                                @include('alerts.feedback', ['field' => 'email'])
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>{{ __('First Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="name" value="">
-                                @include('alerts.feedback', ['field' => 'name'])
-                            </div>
-                        </div>
-                        <div class="col-md-6 pl-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Last Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Last Name') }}" name="last_name" value="">
-                                @include('alerts.feedback', ['field' => 'last_name'])
+                                <input type="text" class="form-control" placeholder="{{ __('Username') }}" name="UserName" value="">
+                                @include('alerts.feedback', ['field' => 'UserName'])
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>{{ __('Address') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Address') }}" name="address" value="">
-                                @include('alerts.feedback', ['field' => 'address'])
-                            </div>
-                        </div>
-                        <div class="col-md-6 pl-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Document Number') }}</label>
-                                <input type="number" class="form-control" placeholder="{{ __('Document Number') }}" name="identification_number" value="">
-                                @include('alerts.feedback', ['field' => 'identification_number'])
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 pr-md-1">
+                        <div class="col-md-5 pr-md-1">
                             <div class="form-group">
                                 <label>{{ __('City') }}</label>
                                 <select type="text" class="form-control" name="city_id" style="background-color: #2b3553;" title="{{ __('City') }}">
@@ -84,28 +47,24 @@
                                 @include('alerts.feedback', ['field' => 'city_id'])
                             </div>
                         </div>
-                        <div class="col-md-4 px-md-1">
+                        <div class="col-md-5 px-md-1">
                             <div class="form-group">
                                 <label>{{ __('Country') }}</label>
                                 <input type="text" class="form-control" disabled placeholder="{{ __('Country') }}" value="">
                             </div>
                         </div>
-                        <div class="col-md-4 pl-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Postal Code') }}</label>
-                                <input type="number" class="form-control" placeholder="ZIP Code" name="postal_code" value="">
-                                @include('alerts.feedback', ['field' => 'postal_code'])
-                            </div>
-                        </div>
                     </div>
+
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-5 pr-md-1">
                             <div class="form-group">
-                                <label>{{ __('About Me') }}</label>
-                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" name="biography"></textarea>
+                                <label>{{ __('Phone') }}</label>
+                                <input type="number" class="form-control" placeholder="{{ __('Phone') }}" name="UserContactNumber" value="">
+                                @include('alerts.feedback', ['field' => 'UserContactNumber'])
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-fill btn-primary float-right mx-1">{{ __('Save') }}</button>

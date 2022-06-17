@@ -34,6 +34,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('partners', PartnerController::class);
     
     Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
-    Route::get('profile/update', 'ProfileController@update')->name('profile.update');
-    Route::get('profile/password', 'ProfileController@password')->name('profile.password');
+    Route::put('profile/update', 'ProfileController@update')->name('profile.update');
+    Route::put('profile/password', 'ProfileController@password')->name('profile.password');
 });

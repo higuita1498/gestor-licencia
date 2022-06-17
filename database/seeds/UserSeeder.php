@@ -12,11 +12,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 50)->create();
         User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
+            'UserName' => 'Admin',
+            'role_id' => 1,
             'password' => bcrypt('secret'),
         ]);
+
+        factory(User::class, 50)->create();
     }
 }

@@ -12,16 +12,16 @@
             </div>
             <div class="card-body">
                 <p class="text-dark mb-2">Sign in with <strong>admin@black.com</strong> and the password <strong>secret</strong></p>
-                <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                <div class="input-group {{ $errors->has('UserName') ? ' has-danger' : '' }}">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <i class="tim-icons icon-email-85"></i>
                         </div>
                     </div>
-                    <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}">
-                    @include('alerts.feedback', ['field' => 'email'])
+                    <input type="text" name="UserName" class="form-control{{ $errors->has('UserName') ? ' is-invalid' : '' }}" placeholder="{{ __('Username') }}">
+                    @include('alerts.feedback', ['field' => 'UserName'])
                 </div>
-                <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                <div class="input-group {{ $errors->has('password') ? ' has-danger' : '' }}">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <i class="tim-icons icon-lock-circle"></i>
