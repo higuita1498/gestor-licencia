@@ -16,11 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $partners = Partner::with('partnerType')->latest()->paginate(10);
+        $products = Product::paginate(10);
 
-        $partnerTypes = PartnerType::all();
-
-        return view('products.index', compact('partners', 'partnerTypes'));
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -74,6 +72,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        if(!$product){
+            return back();
+        }
+
+
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -85,7 +89,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+         $product->update($request->all());
+
+         return back()->withStatus(__('Producto '.$product->id.' actualizado correctamente.'));;
     }
 
     /**
@@ -96,6 +102,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('products.index');
     }
 }
