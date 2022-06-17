@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Partner;
-use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -21,7 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::with('partner', 'role', 'city.department.country')->latest()->paginate(10);
+        $users = User::with('partner', 'roles', 'city.department.country')->latest()->paginate(10);
 
         return view('users.index', compact('users'));
     }
@@ -33,7 +32,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::select('name', 'id');
         $cities = City::select('name', 'id')->get();
         $partners = Partner::select('PartnerName', 'id')->get();
         return  view('users.create', compact('roles', 'cities', 'partners'));
@@ -53,7 +51,6 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->partner_id = $request->partner_id;
         $user->city_id = $request->city_id;
-        $user->role_id = $request->role_id;
         $user->UserContactNumber = $request->UserContactNumber;
         $user->save();
 
@@ -62,7 +59,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $user->load('partner', 'role', 'city.department.country');
+        $user->load('partner', 'roles', 'city.department.country');
         $cities = City::select('name', 'id')->get();
         $partners = Partner::select('PartnerName', 'id')->get();
 

@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->boolean('UserStatus')->default(true);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('role_id')->nullable();
             $table->foreignId('partner_id')->nullable();
             $table->foreignId('city_id')->nullable();
             $table->rememberToken();

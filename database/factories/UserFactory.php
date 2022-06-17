@@ -22,7 +22,6 @@ $factory->define(User::class, function (Faker $faker) {
         'UserName' => $faker->unique()->username(),
         'email_verified_at' => now(),
         'UserStatus' => random_int(0, 1),
-        'role_id' => random_int(1, 10),
         'city_id' => random_int(1, 1127),
         'partner_id' => random_int(1, 10),
         'UserContactNumber' => $faker->unique()->randomNumber(8),
