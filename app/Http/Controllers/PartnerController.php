@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePartnerRequest;
+use App\Http\Requests\UpdatePartnerRequest;
 use App\Models\Partner;
 use App\Models\PartnerType;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PartnerController extends Controller
@@ -48,17 +48,17 @@ class PartnerController extends Controller
 
             DB::beginTransaction();
             $partner = new Partner();
-            $partner->name = $request->name;
-            $partner->contact_name = $request->contact_name;
-            $partner->identification_number = $request->identification_number;
+            $partner->PartnerName = $request->PartnerName;
+            $partner->PartnerEmail = $request->PartnerEmail;
+            $partner->PartnerContactName = $request->PartnerContactName;
+            $partner->PartnerContactNumber = $request->PartnerContactNumber;
             $partner->partner_type_id = $request->partner_type_id;
-            $partner->phone_number = $request->phone_number;
-            $partner->address = $request->address;
             $partner->save();
             DB::commit();
 
             return redirect()->route('partners.index');
         } catch (\Throwable $th) {
+            \Log::error($th->getMessage());
             DB::rollback();
             return back()
                 ->withInput()
@@ -96,22 +96,22 @@ class PartnerController extends Controller
      * @param  \App\Partner  $partner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Partner $partner)
+    public function update(UpdatePartnerRequest $request, Partner $partner)
     {
         try {
             DB::beginTransaction();
-            $partner->name = $request->name;
-            $partner->contact_name = $request->contact_name;
-            $partner->identification_number = $request->identification_number;
+            $partner->PartnerName = $request->PartnerName;
+            $partner->PartnerEmail = $request->PartnerEmail;
+            $partner->PartnerContactName = $request->PartnerContactName;
+            $partner->PartnerContactNumber = $request->PartnerContactNumber;
             $partner->partner_type_id = $request->partner_type_id;
-            $partner->phone_number = $request->phone_number;
-            $partner->address = $request->address;
             $partner->save();
 
             DB::commit();
 
             return redirect()->route('partners.index');
         } catch (\Throwable $th) {
+            \Log::error($th->getMessage());
             DB::rollback();
             return back()->withErrors($th->getMessage());
         }

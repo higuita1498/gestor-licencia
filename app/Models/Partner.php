@@ -15,7 +15,13 @@ class Partner extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'identification_number', 'status', 'partner_type_id', 'phone_number', 'address', 'contact_name'
+        'PartnerName',
+        'PartnerEmail',
+        'Photo',
+        'PartnerStatus',
+        'partner_type_id',
+        'PartnerContactName',
+        'PartnerContactNumber'
     ];
 
     /**
@@ -26,7 +32,7 @@ class Partner extends Model
     protected $hidden = [
         //
     ];
-    
+
 
     public function partnerType()
     {

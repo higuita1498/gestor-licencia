@@ -13,9 +13,9 @@
                         <thead class="text-primary">
                             <tr>
                                 <th>Socio</th>
+                                <th>Correo</th>
                                 <th>Contacto</th>
-                                <th>Identificación</th>
-                                <th>Teléfono</th>
+                                <th>Teléfono Contacto</th>
                                 <th>Estado</th>
                                 <th>Creado</th>
                                 <th>Acciones</th>
@@ -24,12 +24,12 @@
                         <tbody>
                             @foreach ($partners as $partner)
                             <tr>
-                                <td>{{ $partner->name }}</td>
-                                <td>{{ $partner->contact_name }}</td>
-                                <td>{{ $partner->identification_number }}</td>
-                                <td>{{ $partner->phone_number }}</td>
+                                <td>{{ $partner->PartnerName }}</td>
+                                <td>{{ $partner->PartnerEmail }}</td>
+                                <td>{{ $partner->PartnerContactName }}</td>
+                                <td>{{ $partner->PartnerContactNumber }}</td>
                                 <td>
-                                    @if ($partner->status == 1)
+                                    @if ($partner->PartnerStatus == 1)
                                     <span class="badge badge-success">Activo</span>
                                     @else
                                     <span class="badge badge-danger">Inactivo</span>

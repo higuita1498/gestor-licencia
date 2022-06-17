@@ -24,11 +24,11 @@ class UpdatePartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255|unique:partners,name,' . $this->partner->id,
-            'identification_number' => 'required|string|max:255|unique:partners,identification_number,' . $this->partner->id,
+            'PartnerName' => 'required|string|max:255|unique:partners,PartnerName,' . $this->partner->id,
+            'PartnerEmail' => 'required|string|max:255|unique:partners,PartnerEmail,' . $this->partner->id,
+            'PartnerContactNumber' => 'required|integer|unique:partners,PartnerContactNumber,' . $this->partner->id,
             'partner_type_id' => 'required|integer',
-            'phone_number' => 'required|integer',
-            'address' => 'required|string|max:255',
+            'PartnerContactName' => 'required|string|max:255',
         ];
     }
 }

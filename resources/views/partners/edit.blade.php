@@ -17,15 +17,15 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="name" value="{{ $partner->name }}">
-                                @include('alerts.feedback', ['field' => 'name'])
+                                <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="PartnerName" value="{{ $partner->PartnerName }}">
+                                @include('alerts.feedback', ['field' => 'PartnerName'])
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('Contact Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Contact Name') }}" name="contact_name" value="{{ $partner->contact_name }}">
-                                @include('alerts.feedback', ['field' => 'contact_name'])
+                                <input type="text" class="form-control" placeholder="{{ __('Contact Name') }}" name="PartnerContactName" value="{{ $partner->PartnerContactName }}">
+                                @include('alerts.feedback', ['field' => 'PartnerContactName'])
                             </div>
                         </div>
                     </div>
@@ -35,37 +35,31 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('Phone Number') }}</label>
-                                <input type="number" class="form-control" placeholder="{{ __('Phone Number') }}" name="phone_number" value="{{ $partner->phone_number }}">
-                                @include('alerts.feedback', ['field' => 'phone_number'])
+                                <input type="number" class="form-control" placeholder="{{ __('Phone Number') }}" name="PartnerContactNumber" value="{{ $partner->PartnerContactNumber }}">
+                                @include('alerts.feedback', ['field' => 'PartnerContactNumber'])
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 pr-md-1">
                             <div class="form-group">
-                                <label>{{ __('Document Number') }}</label>
-                                <input type="number" class="form-control" placeholder="{{ __('Document Number') }}" name="identification_number" value="{{ $partner->identification_number }}">
-                                @include('alerts.feedback', ['field' => 'identification_number'])
+                                <label>{{ __('Partner Type') }}</label>
+                                <select type="text" class="form-control" name="partner_type_id" style="background-color: #2b3553;" title="{{ __('Partner Type') }}">
+                                    @foreach ($partnerTypes as $partnerType)
+                                    <option value="{{ $partnerType->id }}" {{ $partnerType->id  == $partner->partner_type_id ? 'selected' : '' }}>{{ $partnerType->name }}</option>
+                                    @endforeach
+                                </select>
+                                @include('alerts.feedback', ['field' => 'partner_type_id'])
                             </div>
                         </div>
+
                     </div>
 
                     <div class="row">
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
-                                <label>{{ __('Address') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Address') }}" name="address" value="{{ $partner->address }}">
-                                @include('alerts.feedback', ['field' => 'address'])
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>{{ __('Partner Type') }}</label>
-                                <select type="text" class="form-control" name="partner_type_id" style="background-color: #2b3553;" title="{{ __('Partner Type') }}">
-                                    @foreach ($partnerTypes as $partnerType)
-                                    <option value="{{ $partnerType->id }}" {{ $partnerType->id == $partner->partner_type_id ? 'selected' : ''}}>{{ $partnerType->name }}</option>
-                                    @endforeach
-                                </select>
-                                @include('alerts.feedback', ['field' => 'partner_type_id'])
+                                <label>{{ __('E-Mail Address') }}</label>
+                                <input type="email" class="form-control" placeholder="{{ __('E-Mail Address') }}" name="PartnerEmail" value="{{ $partner->PartnerEmail }}">
+                                @include('alerts.feedback', ['field' => 'PartnerEmail'])
                             </div>
                         </div>
                     </div>

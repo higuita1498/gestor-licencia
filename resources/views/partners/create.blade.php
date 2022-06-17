@@ -16,15 +16,15 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="name" value="">
-                                @include('alerts.feedback', ['field' => 'name'])
+                                <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="PartnerName" value="">
+                                @include('alerts.feedback', ['field' => 'PartnerName'])
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('Contact Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Contact Name') }}" name="contact_name" value="">
-                                @include('alerts.feedback', ['field' => 'contact_name'])
+                                <input type="text" class="form-control" placeholder="{{ __('Contact Name') }}" name="PartnerContactName" value="">
+                                @include('alerts.feedback', ['field' => 'PartnerContactName'])
                             </div>
                         </div>
                     </div>
@@ -34,28 +34,11 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('Phone Number') }}</label>
-                                <input type="number" class="form-control" placeholder="{{ __('Phone Number') }}" name="phone_number" value="">
-                                @include('alerts.feedback', ['field' => 'phone_number'])
+                                <input type="number" class="form-control" placeholder="{{ __('Phone Number') }}" name="PartnerContactNumber" value="">
+                                @include('alerts.feedback', ['field' => 'PartnerContactNumber'])
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>{{ __('Document Number') }}</label>
-                                <input type="number" class="form-control" placeholder="{{ __('Document Number') }}" name="identification_number" value="">
-                                @include('alerts.feedback', ['field' => 'identification_number'])
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="mx-md-1 col-md-5">
-                            <div class="form-group">
-                                <label>{{ __('Address') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Address') }}" name="address" value="">
-                                @include('alerts.feedback', ['field' => 'address'])
-                            </div>
-                        </div>
                         <div class="col-md-6 pr-md-1">
                             <div class="form-group">
                                 <label>{{ __('Partner Type') }}</label>
@@ -67,7 +50,19 @@
                                 @include('alerts.feedback', ['field' => 'partner_type_id'])
                             </div>
                         </div>
+
                     </div>
+
+                    <div class="row">
+                        <div class="mx-md-1 col-md-5">
+                            <div class="form-group">
+                                <label>{{ __('E-Mail Address') }}</label>
+                                <input type="email" class="form-control" placeholder="{{ __('E-Mail Address') }}" name="PartnerEmail" value="">
+                                @include('alerts.feedback', ['field' => 'PartnerEmail'])
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
                 <div class="card-footer">

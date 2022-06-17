@@ -169,9 +169,17 @@ return [
         'password_confirmation' => 'confirmación de contraseña',
         'country_id' => 'país',
         'state_id' => 'estado',
-        'PostalCode' => 'código postal',       
-        'PhoneNumber' => 'número de teléfono',       
-        'ContactName' => 'nombre de contacto',       
+        'PostalCode' => 'código postal',
+        'PhoneNumber' => 'número de teléfono',
+        'ContactName' => 'nombre de contacto',
+        'PartnerName' => 'nombre de socio',
+        'PartnerEmail' => 'correo electrónico de socio',
+        'Photo' => 'foto',
+        'PartnerStatus' => 'estado de socio',
+        'partner_type_id' => 'tipo de socio',
+        'PartnerContactName' => 'nombre de contacto de socio',
+        'PartnerContactNumber' => 'número de contacto de socio',
+
     ],
 
 ];

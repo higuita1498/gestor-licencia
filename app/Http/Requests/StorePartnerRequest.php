@@ -24,11 +24,11 @@ class StorePartnerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255|unique:partners,name',
-            'identification_number' => 'required|string|max:255|unique:partners,identification_number',
+            'PartnerName' => 'required|string|max:255|unique:partners,PartnerName',
+            'PartnerEmail' => 'required|string|max:255|unique:partners,PartnerEmail',
+            'PartnerContactNumber' => 'required|integer|unique:partners,PartnerContactNumber',
             'partner_type_id' => 'required|integer',
-            'phone_number' => 'required|integer',
-            'address' => 'required|string|max:255',
+            'PartnerContactName' => 'required|string|max:255',
         ];
     }
 }

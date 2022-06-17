@@ -15,14 +15,13 @@ class CreatePartnersTable extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('contact_name')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('address')->nullable();
-            $table->boolean('status')->default(true);
+            $table->string('PartnerName')->unique();
+            $table->string('PartnerEmail')->nullable();
+            $table->string('Photo')->nullable();
+            $table->boolean('PartnerStatus')->default(true);
             $table->foreignId('partner_type_id')->nullable();
-            $table->bigInteger('identification_number')->unique();
-            $table->bigInteger('phone_number')->nullable()->unique();
+            $table->string('PartnerContactName')->nullable();
+            $table->bigInteger('PartnerContactNumber')->nullable()->unique();
             $table->timestamps();
             $table->softDeletes();
         });
