@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Black Dashboard') }}</title>
+        <title>{{ config('app.name', 'License Manager') }}</title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('dark/img/apple-icon.png') }}">
         <link rel="icon" type="image/png" href="{{ asset('dark/img/favicon.png') }}">
