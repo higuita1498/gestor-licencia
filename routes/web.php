@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('users', UserController::class);
     Route::resource('partners', PartnerController::class);
+    Route::resource('products', ProductController::class);
     
     Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
     Route::get('profile/update', 'ProfileController@update')->name('profile.update');

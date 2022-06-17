@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('BD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('Black Dashboard') }}</a>
+            <a href="#" class="simple-text logo-mini">{{ __('LM') }}</a>
+            <a href="#" class="simple-text logo-normal">{{ __('License Manager') }}</a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug=='dashboard' ) class="active" @endif>
@@ -68,6 +68,31 @@
                             <a href="{{ route('partners.index') }}">
                                 <i class="tim-icons icon-badge"></i>
                                 <p>Socios</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="#product-module" aria-expanded="{{ $pageSlug == 'prodcuts' ?  true : false }}">
+                    <i class="tim-icons icon-cart"></i>
+                    <span class="nav-link-text">Productos</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="{{ $pageSlug == 'products' ?  'collapse show' : 'collapse' }}" id="product-module">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug=='create-product' ) class="active" @endif>
+                            <a href="{{ route('products.create') }}">
+                                <i class="tim-icons icon-simple-add"></i>
+                                <p>Nuevo producto</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug=='products' ) class="active" @endif>
+                            <a href="{{ route('products.index') }}">
+                                <i class="tim-icons icon-cart"></i>
+                                <p>Productos</p>
                             </a>
                         </li>
                     </ul>
