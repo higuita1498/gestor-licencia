@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         $roles = Role::select('name', 'id');
         $cities = City::select('name', 'id')->get();
-        $partners = Partner::select('name', 'id')->get();
+        $partners = Partner::select('PartnerName', 'id')->get();
         return  view('users.create', compact('roles', 'cities', 'partners'));
     }
 
@@ -63,8 +63,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $user->load('partner', 'role', 'city.department.country');
-        $cities = City::all();
-        $partners = Partner::all();
+        $cities = City::select('name', 'id')->get();
+        $partners = Partner::select('PartnerName', 'id')->get();
 
         return view('users.edit', compact('user', 'cities', 'partners'));
     }

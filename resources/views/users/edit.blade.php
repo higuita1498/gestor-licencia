@@ -20,7 +20,7 @@
                                 <label>{{ __('Company') }}</label>
                                 <select class="form-control" name="partner_id" style="background-color: #2b3553;" title="{{ __('Partner') }}">
                                     @foreach ($partners as $partner)
-                                    <option value="{{ $partner->id }}" {{ $partner->id == $user->partner_id ? 'selected' : ''}}>{{ $partner->name }}</option>
+                                    <option value="{{ $partner->id }}" {{ $partner->id == $user->partner_id ? 'selected' : ''}}>{{ $partner->PartnerName }}</option>
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'partner_id'])
