@@ -42,7 +42,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $request->validate([
+                'ProductName' => 'required',
+                'ProductStatus' => 'required',
+                'NumberOfLicenses' => 'required',
+                'LicenseDuration' => 'required'
+            ]);
+
+            $product = Product::create($request->all());
+
+            return back()->withStatus(__('Producto '.$product->ProductName.' creado correctamente.'));
     }
 
     /**
