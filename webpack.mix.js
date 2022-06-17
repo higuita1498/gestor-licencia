@@ -1,5 +1,8 @@
 const mix = require('laravel-mix');
 
+mix.disableSuccessNotifications();
+
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +14,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js');
+
+mix.styles([
+    'public/dark/css/nucleo-icons.css',
+    'public/dark/css/black-dashboard.css',
+    'public/dark/css/theme.css',
+], 'public/css/app.css');
