@@ -25,14 +25,9 @@ class UpdateUserRequest extends FormRequest
     {
 
         return [
-            "username" => "required|unique:users,username," . $this->user->id,
-            "email" => "required|unique:users,email," . $this->user->id,
-            "name" => "required",
-            "last_name" => "required",
-            "address" => "required",
-            "identification_number" => "required|unique:users,identification_number," . $this->user->id,
+            "UserName" => "required|unique:users,UserName," . $this->user->id,
+            "UserContactNumber" => "required|unique:users,UserContactNumber," . $this->user->id,
             "city_id" => "required",
-            "postal_code" => "required",
         ];
     }
 }

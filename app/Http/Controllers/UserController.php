@@ -49,18 +49,12 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = new User();
-        $user->name = $request->name;
-        $user->last_name = $request->last_name;
-        $user->username = $request->username;
-        $user->email = $request->email;
+        $user->UserName = $request->UserName;
         $user->password = bcrypt($request->password);
         $user->partner_id = $request->partner_id;
         $user->city_id = $request->city_id;
         $user->role_id = $request->role_id;
-        $user->postal_code = $request->postal_code;
-        $user->identification_number = $request->identification_number;
-        $user->address = $request->address;
-        $user->biography = $request->biography;
+        $user->UserContactNumber = $request->UserContactNumber;
         $user->save();
 
         return redirect()->route('users.index')->withStatus(__('Usuario creado con éxito.'));
@@ -92,6 +86,7 @@ class UserController extends Controller
             return redirect()->route('users.index')->withStatus(__('User successfully updated.'));
         } catch (\Throwable $th) {
             DB::rollback();
+            \Log::error($th->getMessage());
             return back()
                 ->withInput()
                 ->withErrors($th->getMessage());

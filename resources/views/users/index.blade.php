@@ -12,11 +12,10 @@
                     <table class="table tablesorter w-100" id="">
                         <thead class="text-primary">
                             <tr>
-                                <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Identificacion</th>
+                                <th>Nombre de usuario</th>
+                                <th>Número de contacto</th>
                                 <th>Role</th>
-                                <th>Partner</th>
+                                <th>Socio</th>
                                 <th>Estado</th>
                                 <th>Creado</th>
                                 <th>Acciones</th>
@@ -25,13 +24,12 @@
                         <tbody>
                             @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->identification_number }}</td>
+                                <td>{{ $user->UserName }}</td>
+                                <td>{{ $user->UserContactNumber }}</td>
                                 <td>{{ optional($user->role)->name }}</td>
                                 <td>{{ optional($user->partner)->name }}</td>
                                 <td>
-                                    @if ($user->status == 1)
+                                    @if ($user->UserStatus == 1)
                                     <span class="badge badge-success">Activo</span>
                                     @else
                                     <span class="badge badge-danger">Inactivo</span>
