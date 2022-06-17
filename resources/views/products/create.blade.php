@@ -3,6 +3,7 @@
 @section('content')
 <form method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
     @csrf
+    @include('alerts.success')
     <div class="row">
 
         <div class="col-md-8">
@@ -16,18 +17,18 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Nombre prodcuto') }}" name="name" value="">
-                                @include('alerts.feedback', ['field' => 'name'])
+                                <input type="text" class="form-control" placeholder="{{ __('Nombre prodcuto') }}" name="ProductName" value="">
+                                @include('alerts.feedback', ['field' => 'ProductName'])
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('Estado') }}</label>
-                                <select type="text" class="form-control" name="status" style="background-color: #2b3553;" title="{{ __('Estado') }}">
+                                <select type="text" class="form-control" name="ProductStatus" style="background-color: #2b3553;" title="{{ __('Estado') }}">
                                     <option value="1" selected>Activo</option>
                                     <option value="0">Desactivado</option>
                                 </select>
-                                @include('alerts.feedback', ['field' => 'status'])
+                                @include('alerts.feedback', ['field' => 'ProductStatus'])
                             </div>
                         </div>
                     </div>
@@ -37,12 +38,17 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('Numero de licencias') }}</label>
-                                <input type="number" class="form-control" placeholder="{{ __('Numero de licencias') }}" name="numberOfLicenses" value="">
-                                @include('alerts.feedback', ['field' => 'numberOfLicenses'])
+                                <input type="number" class="form-control" placeholder="{{ __('Numero de licencias') }}" name="NumberOfLicenses" value="">
+                                @include('alerts.feedback', ['field' => 'NumberOfLicenses'])
                             </div>
                         </div>
 
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{ __('Cantidad de meses') }}</label>
+                                <input type="number" class="form-control" placeholder="{{ __('Cantidad de meses') }}" name="LicenseDuration" value="">
+                                @include('alerts.feedback', ['field' => 'LicenseDuration'])
+                            </div>
                         </div>
                     </div>
 
