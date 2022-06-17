@@ -89,6 +89,14 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+
+        $request->validate([
+            'ProductName' => 'required',
+            'ProductStatus' => 'required',
+            'NumberOfLicenses' => 'required',
+            'LicenseDuration' => 'required'
+        ]);
+
          $product->update($request->all());
 
          return back()->withStatus(__('Producto '.$product->id.' actualizado correctamente.'));;
