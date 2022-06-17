@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable, SoftDeletes, HasRoles;
 
 
 
@@ -25,7 +26,6 @@ class User extends Authenticatable
         'UserStatus',
         'email_verified_at',
         'password',
-        'role_id',
         'partner_id',
         'city_id',
     ];
@@ -54,10 +54,6 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Partner');
     }
 
-    public function role()
-    {
-        return $this->belongsTo('App\Models\Role');
-    }
 
     public function city()
     {

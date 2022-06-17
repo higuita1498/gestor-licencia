@@ -16,7 +16,7 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        $profile = User::with('partner', 'city', 'role')->where('id', auth()->id())->first();
+        $profile = User::with('partner', 'city', 'roles')->where('id', auth()->id())->first();
 
         return view('profile.edit', compact('profile'));
     }

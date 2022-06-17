@@ -26,7 +26,7 @@
                             <tr>
                                 <td>{{ $user->UserName }}</td>
                                 <td>{{ $user->UserContactNumber }}</td>
-                                <td>{{ optional($user->role)->name }}</td>
+                                <td>{{ $user->getRoleNames()->implode(', ') }}</td>
                                 <td>{{ optional($user->partner)->PartnerName }}</td>
                                 <td>
                                     @if ($user->UserStatus == 1)
