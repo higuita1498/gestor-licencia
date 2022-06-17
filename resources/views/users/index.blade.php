@@ -27,7 +27,7 @@
                                 <td>{{ $user->UserName }}</td>
                                 <td>{{ $user->UserContactNumber }}</td>
                                 <td>{{ optional($user->role)->name }}</td>
-                                <td>{{ optional($user->partner)->name }}</td>
+                                <td>{{ optional($user->partner)->PartnerName }}</td>
                                 <td>
                                     @if ($user->UserStatus == 1)
                                     <span class="badge badge-success">Activo</span>
