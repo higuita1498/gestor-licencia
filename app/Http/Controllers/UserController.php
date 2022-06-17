@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $cities = City::select('name', 'id')->get();
         $partners = Partner::select('PartnerName', 'id')->get();
-        return  view('users.create', compact('roles', 'cities', 'partners'));
+        return  view('users.create', compact('cities', 'partners'));
     }
 
     /**
