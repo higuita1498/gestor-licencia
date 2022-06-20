@@ -3,6 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
+        @include('alerts.success')
         <div class="card ">
             <div class="card-header">
                 <h4 class="card-title"> Usuarios</h4>

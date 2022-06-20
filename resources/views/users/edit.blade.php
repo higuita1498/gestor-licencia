@@ -56,6 +56,7 @@
                     </div>
 
                     <div class="row">
+
                         <div class="col-md-5 pr-md-1">
                             <div class="form-group">
                                 <label>{{ __('Phone') }}</label>
@@ -63,6 +64,14 @@
                                 @include('alerts.feedback', ['field' => 'UserContactNumber'])
                             </div>
                         </div>
+                        <div class="col-md-5 px-md-1">
+                            <div class="form-group">
+                                <label>{{ __('Email') }}</label>
+                                <input type="text" name="UserID" class="form-control" placeholder="{{ __('Email') }}" required value="{{ $user->UserID }}">
+                                @include('alerts.feedback', ['field' => 'UserID'])
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="card-footer">

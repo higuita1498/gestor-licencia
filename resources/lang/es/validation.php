@@ -179,6 +179,8 @@ return [
         'partner_type_id' => 'tipo de socio',
         'PartnerContactName' => 'nombre de contacto de socio',
         'PartnerContactNumber' => 'número de contacto de socio',
+        'UserContactNumber' => 'número de contacto de usuario',
+        'UserID' => 'identificador del usuario',
 
     ],
 

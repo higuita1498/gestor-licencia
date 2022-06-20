@@ -24,6 +24,7 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
+            'UserID' => 'required|unique:users,UserID',
             'UserContactNumber' => 'required|unique:users,UserContactNumber',
             'UserName' => 'required|string|max:255|unique:users,UserName',
             'partner_id' => 'required|integer|exists:partners,id',

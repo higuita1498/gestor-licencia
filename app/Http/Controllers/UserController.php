@@ -47,6 +47,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = new User();
+        $user->UserID = $request->UserID;
         $user->UserName = $request->UserName;
         $user->password = bcrypt($request->password);
         $user->partner_id = $request->partner_id;

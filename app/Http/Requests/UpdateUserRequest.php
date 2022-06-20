@@ -25,6 +25,7 @@ class UpdateUserRequest extends FormRequest
     {
 
         return [
+            'UserID' => 'required|unique:users,UserID,'.$this->user->id,
             "UserName" => "required|unique:users,UserName," . $this->user->id,
             "UserContactNumber" => "required|unique:users,UserContactNumber," . $this->user->id,
             "city_id" => "required",

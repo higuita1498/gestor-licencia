@@ -20,7 +20,7 @@
                                 <label>{{ __('Company') }}</label>
                                 <select type="text" class="form-control" name="partner_id" style="background-color: #2b3553;" title="{{ __('City') }}">
                                     @foreach ($partners as $partner)
-                                    <option value="{{ $partner->id }}">{{ $partner->PartnerName }}</option>
+                                    <option value="{{ $partner->id }}" {{ $partner->id == old('partner_id') ? ' selected="selected"' : ''}}>{{ $partner->PartnerName }}</option>
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'partner_id'])
@@ -29,7 +29,7 @@
                         <div class="col-md-5 px-md-1">
                             <div class="form-group">
                                 <label>{{ __('Username') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Username') }}" name="UserName" value="">
+                                <input type="text" class="form-control" placeholder="{{ __('Username') }}" name="UserName" value="{{ old('UserName') }}" required>
                                 @include('alerts.feedback', ['field' => 'UserName'])
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                 <label>{{ __('City') }}</label>
                                 <select type="text" class="form-control" name="city_id" style="background-color: #2b3553;" title="{{ __('City') }}">
                                     @foreach ($cities as $city)
-                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                    <option value="{{ $city->id }}" {{ $city->id == old('city_id') ? ' selected="selected"' : ''}}>{{ $city->name }}</option>
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'city_id'])
@@ -59,8 +59,15 @@
                         <div class="col-md-5 pr-md-1">
                             <div class="form-group">
                                 <label>{{ __('Phone') }}</label>
-                                <input type="number" class="form-control" placeholder="{{ __('Phone') }}" name="UserContactNumber" value="">
+                                <input type="number" class="form-control" placeholder="{{ __('Phone') }}" name="UserContactNumber" value="{{ old('UserContactNumber') }}" required>
                                 @include('alerts.feedback', ['field' => 'UserContactNumber'])
+                            </div>
+                        </div>
+                        <div class="col-md-5 px-md-1">
+                            <div class="form-group">
+                                <label>{{ __('Email') }}</label>
+                                <input type="text" name="UserID" class="form-control" placeholder="{{ __('Email') }}" required value="{{ old('UserID') }}" required>
+                                @include('alerts.feedback', ['field' => 'UserID'])
                             </div>
                         </div>
                     </div>
