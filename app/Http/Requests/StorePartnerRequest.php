@@ -27,7 +27,6 @@ class StorePartnerRequest extends FormRequest
             'PartnerName' => 'required|string|max:255|unique:partners,PartnerName',
             'PartnerEmail' => 'required|string|max:255|unique:partners,PartnerEmail',
             'PartnerContactNumber' => 'required|integer|unique:partners,PartnerContactNumber',
-            'partner_type_id' => 'required|integer',
             'PartnerContactName' => 'required|string|max:255',
         ];
     }

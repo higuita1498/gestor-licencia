@@ -27,7 +27,6 @@ class UpdatePartnerRequest extends FormRequest
             'PartnerName' => 'required|string|max:255|unique:partners,PartnerName,' . $this->partner->id,
             'PartnerEmail' => 'required|string|max:255|unique:partners,PartnerEmail,' . $this->partner->id,
             'PartnerContactNumber' => 'required|integer|unique:partners,PartnerContactNumber,' . $this->partner->id,
-            'partner_type_id' => 'required|integer',
             'PartnerContactName' => 'required|string|max:255',
         ];
     }

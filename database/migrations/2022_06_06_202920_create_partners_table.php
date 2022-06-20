@@ -19,7 +19,6 @@ class CreatePartnersTable extends Migration
             $table->string('PartnerEmail')->nullable();
             $table->string('Photo')->nullable();
             $table->boolean('PartnerStatus')->default(true);
-            $table->foreignId('partner_type_id')->nullable();
             $table->string('PartnerContactName')->nullable();
             $table->bigInteger('PartnerContactNumber')->nullable()->unique();
             $table->timestamps();

@@ -40,15 +40,7 @@
                         </div>
 
                         <div class="col-md-6 pr-md-1">
-                            <div class="form-group">
-                                <label>{{ __('Partner Type') }}</label>
-                                <select type="text" class="form-control" name="partner_type_id" style="background-color: #2b3553;" title="{{ __('Partner Type') }}">
-                                    @foreach ($partnerTypes as $partnerType)
-                                    <option value="{{ $partnerType->id }}">{{ $partnerType->name }}</option>
-                                    @endforeach
-                                </select>
-                                @include('alerts.feedback', ['field' => 'partner_type_id'])
-                            </div>
+                           <!-- TODO: add partnerID field-->
                         </div>
 
                     </div>

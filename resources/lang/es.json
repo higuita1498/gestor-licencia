@@ -77,5 +77,7 @@
     "Partner Type": "Tipo de socio",
     "Contact Name": "Nombre de contacto",
     "User successfully updated.": "Usuario actualizado correctamente.",
-    "User successfully created.": "Usuario creado correctamente." 
+    "User successfully created.": "Usuario creado correctamente.",
+    "Partner successfully updated.": "Socio actualizado correctamente.",
+    "Partner successfully created.": "Socio creado correctamente."
 }

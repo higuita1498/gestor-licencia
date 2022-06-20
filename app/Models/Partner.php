@@ -19,7 +19,6 @@ class Partner extends Model
         'PartnerEmail',
         'Photo',
         'PartnerStatus',
-        'partner_type_id',
         'PartnerContactName',
         'PartnerContactNumber'
     ];

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePartnerRequest;
 use App\Models\Partner;
-use App\Models\PartnerType;
 use Illuminate\Support\Facades\DB;
 
 class PartnerController extends Controller
@@ -17,11 +16,9 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partners = Partner::with('partnerType')->latest()->paginate(10);
+        $partners = Partner::latest()->paginate(10);
 
-        $partnerTypes = PartnerType::all();
-
-        return view('partners.index', compact('partners', 'partnerTypes'));
+        return view('partners.index', compact('partners'));
     }
 
     /**
@@ -31,9 +28,7 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        $partnerTypes = PartnerType::all();
-
-        return view('partners.create', compact('partnerTypes'));
+        return view('partners.create');
     }
 
     /**
@@ -52,11 +47,11 @@ class PartnerController extends Controller
             $partner->PartnerEmail = $request->PartnerEmail;
             $partner->PartnerContactName = $request->PartnerContactName;
             $partner->PartnerContactNumber = $request->PartnerContactNumber;
-            $partner->partner_type_id = $request->partner_type_id;
             $partner->save();
             DB::commit();
 
-            return redirect()->route('partners.index');
+            return redirect()->route('partners.index')
+                ->withStatus(__('Partner successfully created.'));
         } catch (\Throwable $th) {
             \Log::error($th->getMessage());
             DB::rollback();
@@ -85,8 +80,7 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner)
     {
-        $partnerTypes = PartnerType::all();
-        return view('partners.edit', compact('partner', 'partnerTypes'));
+        return view('partners.edit', compact('partner'));
     }
 
     /**
@@ -104,12 +98,12 @@ class PartnerController extends Controller
             $partner->PartnerEmail = $request->PartnerEmail;
             $partner->PartnerContactName = $request->PartnerContactName;
             $partner->PartnerContactNumber = $request->PartnerContactNumber;
-            $partner->partner_type_id = $request->partner_type_id;
             $partner->save();
 
             DB::commit();
 
-            return redirect()->route('partners.index');
+            return redirect()->route('partners.index')
+                ->withStatus(__('Partner successfully updated.'));
         } catch (\Throwable $th) {
             \Log::error($th->getMessage());
             DB::rollback();
