@@ -12,5 +12,6 @@ $factory->define(Partner::class, function (Faker $faker) {
         'PartnerContactNumber' => $faker->unique()->randomNumber(8),
         'PartnerStatus' => random_int(0, 1),
         'PartnerEmail' => $faker->unique()->email,
+        'PartnerID' => $faker->unique()->randomNumber(8),
     ];
 });

@@ -25,6 +25,7 @@ class UpdatePartnerRequest extends FormRequest
     {
         return [
             'PartnerName' => 'required|string|max:255|unique:partners,PartnerName,' . $this->partner->id,
+            'PartnerID' => 'required|string|max:255|unique:partners,PartnerID,' . $this->partner->id,
             'PartnerEmail' => 'required|string|max:255|unique:partners,PartnerEmail,' . $this->partner->id,
             'PartnerContactNumber' => 'required|integer|unique:partners,PartnerContactNumber,' . $this->partner->id,
             'PartnerContactName' => 'required|string|max:255',

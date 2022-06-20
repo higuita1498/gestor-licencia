@@ -41,7 +41,11 @@
                         </div>
 
                         <div class="col-md-6 pr-md-1">
-                           <!-- TODO: add partnerID field-->
+                        <div class="form-group">
+                                <label>{{ __('PartnerID') }}</label>
+                                <input type="text" class="form-control" placeholder="{{ __('PartnerID') }}" name="PartnerID" value="{{ $partner->PartnerID }}" required>
+                                @include('alerts.feedback', ['field' => 'PartnerID'])
+                            </div>
                         </div>
 
                     </div>

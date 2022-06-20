@@ -16,14 +16,14 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="PartnerName" value="">
+                                <input type="text" class="form-control" placeholder="{{ __('Company') }}" name="PartnerName" value="{{ old('PartnerName') }}">
                                 @include('alerts.feedback', ['field' => 'PartnerName'])
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('Contact Name') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('Contact Name') }}" name="PartnerContactName" value="">
+                                <input type="text" class="form-control" placeholder="{{ __('Contact Name') }}" name="PartnerContactName" value="{{ old('PartnerContactName') }}">
                                 @include('alerts.feedback', ['field' => 'PartnerContactName'])
                             </div>
                         </div>
@@ -39,8 +39,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 pr-md-1">
-                           <!-- TODO: add partnerID field-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{ __('PartnerID') }}</label>
+                                <input type="text" class="form-control" placeholder="{{ __('PartnerID') }}" name="PartnerID" value="{{ old('PartnerID') }}" required>
+                                @include('alerts.feedback', ['field' => 'PartnerID'])
+                            </div>
                         </div>
 
                     </div>
@@ -49,7 +53,7 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('E-Mail Address') }}</label>
-                                <input type="email" class="form-control" placeholder="{{ __('E-Mail Address') }}" name="PartnerEmail" value="">
+                                <input type="email" class="form-control" placeholder="{{ __('E-Mail Address') }}" name="PartnerEmail" value="{{ old('PartnerEmail') }}" required>
                                 @include('alerts.feedback', ['field' => 'PartnerEmail'])
                             </div>
                         </div>

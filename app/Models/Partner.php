@@ -20,7 +20,8 @@ class Partner extends Model
         'Photo',
         'PartnerStatus',
         'PartnerContactName',
-        'PartnerContactNumber'
+        'PartnerContactNumber',
+        'PartnerID',
     ];
 
     /**

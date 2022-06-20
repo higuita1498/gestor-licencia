@@ -44,6 +44,7 @@ class PartnerController extends Controller
             DB::beginTransaction();
             $partner = new Partner();
             $partner->PartnerName = $request->PartnerName;
+            $partner->PartnerID = $request->PartnerID;
             $partner->PartnerEmail = $request->PartnerEmail;
             $partner->PartnerContactName = $request->PartnerContactName;
             $partner->PartnerContactNumber = $request->PartnerContactNumber;
@@ -95,6 +96,7 @@ class PartnerController extends Controller
         try {
             DB::beginTransaction();
             $partner->PartnerName = $request->PartnerName;
+            $partner->PartnerID = $request->PartnerID;
             $partner->PartnerEmail = $request->PartnerEmail;
             $partner->PartnerContactName = $request->PartnerContactName;
             $partner->PartnerContactNumber = $request->PartnerContactNumber;
