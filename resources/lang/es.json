@@ -80,5 +80,6 @@
     "User successfully updated.": "Usuario actualizado correctamente.",
     "User successfully created.": "Usuario creado correctamente.",
     "Partner successfully updated.": "Socio actualizado correctamente.",
-    "Partner successfully created.": "Socio creado correctamente."
+    "Partner successfully created.": "Socio creado correctamente.",
+    "The given data was invalid.": "Los datos introducidos no son válidos."
 }
