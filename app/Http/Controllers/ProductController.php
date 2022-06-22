@@ -28,8 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $partnerTypes = PartnerType::all();
-        return view('products.create', compact('partnerTypes'));
+        return view('products.create');
     }
 
     /**
@@ -44,7 +43,8 @@ class ProductController extends Controller
                 'ProductName' => 'required',
                 'ProductStatus' => 'required',
                 'NumberOfLicenses' => 'required',
-                'LicenseDuration' => 'required'
+                'LicenseDuration' => 'required',
+                'IdProduct' => 'required'
             ]);
 
             $product = Product::create($request->all());
@@ -94,7 +94,8 @@ class ProductController extends Controller
             'ProductName' => 'required',
             'ProductStatus' => 'required',
             'NumberOfLicenses' => 'required',
-            'LicenseDuration' => 'required'
+            'LicenseDuration' => 'required',
+            'IdProduct' => 'required'
         ]);
 
          $product->update($request->all());

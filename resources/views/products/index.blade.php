@@ -22,7 +22,7 @@
                             @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->ProductName }}</td>
-                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->IdProduct }}</td>
                                 <td>{{ $product->getStatus() }}</td>
                                 <td>{{ $product->NumberOfLicenses }}  | <a href="{{ route('products.edit', $product) }}">edit</a></td>
                             </tr>

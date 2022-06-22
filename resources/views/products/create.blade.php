@@ -52,6 +52,18 @@
                         </div>
                     </div>
 
+                    <div class="row">
+
+                        <div class="mx-md-1 col-md-5">
+                            <div class="form-group">
+                                <label>{{ __('ID del producto') }}</label>
+                                <input type="text" class="form-control" placeholder="{{ __('ID del producto') }}" name="IdProduct" value="">
+                                @include('alerts.feedback', ['field' => 'IdProduct'])
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-fill btn-primary float-right mx-1">{{ __('Save') }}</button>
