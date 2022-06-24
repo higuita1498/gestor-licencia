@@ -33,8 +33,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('licences', LicenceController::class);
     
     Route::get('profile/edit', 'ProfileController@edit')->name('profile.edit');
     Route::put('profile/update', 'ProfileController@update')->name('profile.update');
     Route::put('profile/password', 'ProfileController@password')->name('profile.password');
+
 });

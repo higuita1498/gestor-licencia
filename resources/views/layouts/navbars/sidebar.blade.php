@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li @if ($pageSlug=='icons' ) class="active" @endif>
-                <a href="javascript:void(0)">
+                <a href="{{ route('licences.index') }}">
                     <i class="tim-icons icon-badge"></i>
                     <p>Generar licencias</p>
                 </a>
