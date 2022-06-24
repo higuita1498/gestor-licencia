@@ -3,26 +3,25 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $request->validate([
-            'UserName' => 'required|string',
-            'password' => 'required',
-        ]);
 
         $user = User::where('UserName', $request->UserName)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'UserName' => ['The provided credentials are incorrect.'],
-            ]);
+            throw new HttpResponseException(response()->json([
+                'success'   => false,
+                'message'   => 'Las credenciales proporcionadas no son correctas',
+            ], 422));
         }
 
         return response()->json([
@@ -32,14 +31,9 @@ class AuthController extends Controller
     }
 
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $request->validate([
-            'UserName' => 'required|string|unique:users,UserName',
-            'UserContactNumber' => 'required|integer|unique:users,UserContactNumber',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
+       
         $user = User::create([
             'UserName' => $request->UserName,
             'UserContactNumber' => $request->UserContactNumber,
