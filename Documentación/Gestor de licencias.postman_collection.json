@@ -1,11 +1,51 @@
 {
 	"info": {
-		"_postman_id": "a07d1802-6985-4a8a-afd3-3a8d453c7540",
+		"_postman_id": "fd5a3732-beb8-433d-9347-43be3eac7828",
 		"name": "Gestor de licencias",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "6224625"
 	},
 	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|r3GmyrqEoIEHuRoAcUfXSJGfQbL8SObS7uNz8mEf",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Login",
 			"request": {
