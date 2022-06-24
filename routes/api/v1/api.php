@@ -22,4 +22,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('user', 'AuthController@user');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
+
+    Route::apiResource('users', 'UserController');
 });
