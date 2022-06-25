@@ -6,7 +6,6 @@ use App\Models\Licence;
 use App\Models\Partner;
 use App\Models\Product;
 use Faker\Generator as Faker;
-use JetBrains\PhpStorm\Pure;
 
 $factory->define(Licence::class, function (Faker $faker) {
 
