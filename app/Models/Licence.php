@@ -56,4 +56,9 @@ class Licence extends Model
                 break;
         }
     }
+
+    public function getFormatExpirationDateAttribute()
+    {
+        return $this->ExpirationDate ? $this->ExpirationDate->format('Y-m-d') : null; 
+    }
 }

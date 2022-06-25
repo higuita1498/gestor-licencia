@@ -12,17 +12,20 @@ $factory->define(Licence::class, function (Faker $faker) {
 
     $partner = Partner::with('users')->get()->random();
     $product = Product::all()->random();
+    $licenceStatus = random_int(1, 4);
 
     return [
         'LicenseKey' => $faker->unique()->uuid(),
         'ProductID' => $product->IdProduct,
         'product_id' => $product->id,
-        'Status' => random_int(1, 4),
+        'Status' => $licenceStatus,
         'PartnerID' => $partner->PartnerID,
         'partner_id' => $partner->id,
         'MasterCode' => $faker->swiftBicNumber,
         'UserID' => $partner->users->first()->UserID,
         'user_id' => $partner->users->first()->id,
-        'ExpirationDate' => $faker->dateTimeBetween(now(),now()->addYear()),
+        'ExpirationDate' => ($licenceStatus === 3)
+            ? $faker->dateTimeBetween(now(), now()->addYear())
+            : null,
     ];
 });

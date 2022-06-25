@@ -32,7 +32,7 @@
                                 <td>{{ $licence->MasterCode }}</td>
                                 <td>{{ optional($licence->user)->UserID }}</td>
                                 <td><span class="badge badge-default">{{ $licence->status_name }}</span></td>
-                                <td>{{ $licence->ExpirationDate->format('Y-m-d') }}</td>
+                                <td>{{ $licence->format_expiration_date  }}</td>
                                 <td>
                                     <a href="{{ route('licences.show', $licence)     }}" class="btn btn-primary btn-sm">Consultar</a>
                                 </td>
