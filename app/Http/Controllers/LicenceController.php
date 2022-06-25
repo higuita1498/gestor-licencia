@@ -84,6 +84,7 @@ class LicenceController extends Controller
      */
     public function show(Licence $licence)
     {
+        $licence->load('product', 'partner', 'user');
         return view('licences.show', compact('licence'));
     }
 
