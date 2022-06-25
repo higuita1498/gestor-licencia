@@ -13,13 +13,13 @@
             </li>
 
             <li>
-                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="{{ $pageSlug == 'licences' ?  true : false }}">
+                <a data-toggle="collapse" href="#licence-module" aria-expanded="{{ $pageSlug == 'licences' ?  true : false }}">
                     <i class="tim-icons icon-badge"></i>
                     <span class="nav-link-text">Gestión de licencias</span>
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="{{ $pageSlug == 'create-licences' ?  'collapse show' : 'collapse' }}" id="laravel-examples">
+                <div class="{{ $pageSlug == 'licences' ?  'collapse show' : 'collapse' }}" id="licence-module">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='create-licences' ) class="active" @endif>
                             <a href="{{ route('licences.create') }}">
@@ -46,13 +46,13 @@
             </li>
 
             <li>
-                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="{{ $pageSlug == 'users' ?  true : false }}">
+                <a data-toggle="collapse" href="#user-module" aria-expanded="{{ $pageSlug == 'users' ?  true : false }}">
                     <i class="tim-icons icon-single-02"></i>
                     <span class="nav-link-text">Gestión de Usuarios</span>
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="{{ $pageSlug == 'create-users' ?  'collapse show' : 'collapse' }}" id="laravel-examples">
+                <div class="{{ $pageSlug == 'create-users' ?  'collapse show' : 'collapse' }}" id="user-module">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='create-users' ) class="active" @endif>
                             <a href="{{ route('users.create') }}">
