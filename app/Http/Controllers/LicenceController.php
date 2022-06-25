@@ -14,9 +14,9 @@ class LicenceController extends Controller
      */
     public function index()
     {
-    
+        $licences = Licence::with('product', 'partner', 'user')->paginate();
 
-        return view('licences.index');
+        return view('licences.index', compact('licences'));
     }
 
     /**
@@ -26,7 +26,7 @@ class LicenceController extends Controller
      */
     public function create()
     {
-        //
+        return view('licences.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class LicenceController extends Controller
      */
     public function show(Licence $licence)
     {
-        //
+        return view('licences.show', compact('licence'));
     }
 
     /**

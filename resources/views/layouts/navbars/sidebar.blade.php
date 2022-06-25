@@ -11,12 +11,33 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug=='icons' ) class="active" @endif>
-                <a href="{{ route('licences.index') }}">
+
+            <li>
+                <a data-toggle="collapse" href="#laravel-examples" aria-expanded="{{ $pageSlug == 'licences' ?  true : false }}">
                     <i class="tim-icons icon-badge"></i>
-                    <p>Generar licencias</p>
+                    <span class="nav-link-text">Gestión de licencias</span>
+                    <b class="caret mt-1"></b>
                 </a>
+
+                <div class="{{ $pageSlug == 'create-licences' ?  'collapse show' : 'collapse' }}" id="laravel-examples">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug=='create-licences' ) class="active" @endif>
+                            <a href="{{ route('licences.create') }}">
+                                <i class="tim-icons icon-simple-add"></i>
+                                <p>Nueva licencia</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug=='licences' ) class="active" @endif>
+                            <a href="{{ route('licences.index') }}">
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>Licencias</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+
+
             <li @if ($pageSlug=='maps' ) class="active" @endif>
                 <a href="javascript:void(0)">
                     <i class="tim-icons icon-key-25"></i>

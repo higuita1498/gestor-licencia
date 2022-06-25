@@ -12,7 +12,9 @@ class Licence extends Model
         'LicenseKey', 'ProductID', 'product_id', 'Status', 'ExpirationDate',
         'PartnerID', 'partner_id', 'MasterCode', 'UserID', 'user_id'
     ];
-    
+
+    protected $dates = [ 'ExpirationDate'];
+
 
     public function product()
     {
@@ -27,5 +29,31 @@ class Licence extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    public function getStatusNameAttribute()
+    {
+        switch ((int) $this->Status) {
+            case 1:
+                return 'Available';
+                break;
+
+            case 2:
+                return 'Delivered';
+                break;
+
+            case 3:
+                return 'Active';
+                break;
+
+            case 4:
+                return 'Cancelled';
+                break;
+
+            default:
+                return $this->status;
+                break;
+        }
     }
 }

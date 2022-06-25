@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Crear licencia'), 'pageSlug' => 'create-licences'])
+@extends('layouts.app', ['page' => __('Consultar licencia'), 'pageSlug' => 'show-licences'])
 
 @section('content')
 <form method="post" action="{{ route('users.store') }}" enctype="multipart/form-data">
