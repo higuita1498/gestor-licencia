@@ -21,10 +21,16 @@ $factory->define(Licence::class, function (Faker $faker) {
         'Status' => $licenceStatus,
         'PartnerID' => $partner->PartnerID,
         'partner_id' => $partner->id,
-        'MasterCode' => $faker->swiftBicNumber,
-        'UserID' => $partner->users->first()->UserID,
-        'user_id' => $partner->users->first()->id,
-        'ExpirationDate' => ($licenceStatus === 3)
+        'MasterCode' => ($licenceStatus > 1)
+            ? $faker->swiftBicNumber
+            : null,
+        'UserID' => ($licenceStatus === 3 || $licenceStatus === 4 )
+            ? $partner->users->first()->UserID
+            : null,
+        'user_id' => ($licenceStatus === 3 || $licenceStatus === 4 )
+            ? $partner->users->first()->id
+            : null,
+        'ExpirationDate' => ($licenceStatus === 3 || $licenceStatus === 4)
             ? $faker->dateTimeBetween(now(), now()->addYear())
             : null,
     ];
