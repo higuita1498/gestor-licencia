@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 
-    protected $fillable = ['ProductStatus', 'ProductName', 'NumberOfLicenses', 'LicenseDuration', 'IdProduct'];
+    protected $fillable = [
+        'ProductStatus', 'ProductName', 'NumberOfLicenses',
+        'LicenseDuration', 'IdProduct'
+    ];
 
 
     public function getStatus()

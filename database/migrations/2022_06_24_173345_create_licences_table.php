@@ -18,12 +18,12 @@ class CreateLicencesTable extends Migration
             $table->uuid('LicenseKey')->nullable();
             $table->string('ProductID');
             $table->foreignId('product_id')->nullable();
-            $table->integer('Status');
+            $table->integer('Status')->default(1);
             $table->string('PartnerID');
             $table->foreignId('partner_id')->nullable();
             $table->string('MasterCode')->nullable();
             $table->string('UserID')->nullable();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->timestamp('ExpirationDate')->nullable();
             $table->timestamps();
         });

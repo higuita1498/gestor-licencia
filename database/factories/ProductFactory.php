@@ -11,7 +11,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'ProductName' => $faker->name,
         'NumberOfLicenses' => random_int(0,200),
         'LicenseDuration' => random_int(0,12),
-        'ProductName' => $faker->streetName,
+        'ProductName' => $faker->unique()->streetName,
         'IdProduct' => $faker->unique()->swiftBicNumber(),
     ];
 });

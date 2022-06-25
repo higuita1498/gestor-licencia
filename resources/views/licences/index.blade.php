@@ -16,7 +16,7 @@
                                 <th>Llave de licencia</th>
                                 <th>Producto</th>
                                 <th>Socio</th>
-                                <th>Codigo Mestro</th>
+                                <th>Código Maestro</th>
                                 <th>Usuario</th>
                                 <th>Estado</th>
                                 <th>Fecha de expiración</th>

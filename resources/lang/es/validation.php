@@ -182,6 +182,7 @@ return [
         'UserContactNumber' => 'número de contacto de usuario',
         'UserID' => 'identificador del usuario',
         'PartnerID' => 'identificador del socio',
+        'licencesNumber' => 'número de licencias',
 
     ],
 

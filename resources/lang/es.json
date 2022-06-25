@@ -64,6 +64,8 @@
     "Username": "Nombre de usuario",
     "Email": "Correo electrónico",
     "Address": "Dirección",
+    "Products": "Productos",
+    "Product": "Producto",
     "City": "Ciudad",
     "State": "Estado",
     "Zip": "Código postal",
@@ -81,5 +83,7 @@
     "User successfully created.": "Usuario creado correctamente.",
     "Partner successfully updated.": "Socio actualizado correctamente.",
     "Partner successfully created.": "Socio creado correctamente.",
+    "Licences successfully updated.": "Licencia actualizada correctamente.",
+    "Licences successfully created.": "Licencias creadas correctamente.",
     "The given data was invalid.": "Los datos introducidos no son válidos."
 }
