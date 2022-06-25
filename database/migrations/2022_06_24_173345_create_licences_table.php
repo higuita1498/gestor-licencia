@@ -15,7 +15,7 @@ class CreateLicencesTable extends Migration
     {
         Schema::create('licences', function (Blueprint $table) {
             $table->id();
-            $table->string('LicenseKey');
+            $table->uuid('LicenseKey')->nullable();
             $table->string('ProductID');
             $table->foreignId('product_id')->nullable();
             $table->integer('Status');

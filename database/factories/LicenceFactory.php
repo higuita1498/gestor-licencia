@@ -14,7 +14,7 @@ $factory->define(Licence::class, function (Faker $faker) {
     $product = Product::all()->random();
 
     return [
-        'LicenseKey' => $faker->randomNumber(5),
+        'LicenseKey' => $faker->unique()->uuid(),
         'ProductID' => $product->IdProduct,
         'product_id' => $product->id,
         'Status' => random_int(1, 4),
