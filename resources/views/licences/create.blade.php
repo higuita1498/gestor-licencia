@@ -6,15 +6,6 @@
 
     @include('alerts.success')
 
-    @if ($errors->any())
-    @foreach ($errors->all() as $error)
-
-    <li>{{ $error }}</li>
-
-    @endforeach
-
-    @endif
-
     <div class="row">
 
         <div class="col-md-12">
@@ -59,7 +50,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-fill btn-primary float-right mx-1">{{ __('Save') }}</button>
-                    <a href="{{ route('users.index') }}" class="btn btn-fill btn-default float-right mx-1">{{ __('Cancel') }}</a>
+                    <a href="{{ route('licences.index') }}" class="btn btn-fill btn-default float-right mx-1">{{ __('Cancel') }}</a>
                 </div>
             </div>
         </div>
