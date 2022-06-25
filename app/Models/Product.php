@@ -6,30 +6,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    //
+
     protected $fillable = ['ProductStatus', 'ProductName', 'NumberOfLicenses', 'LicenseDuration', 'IdProduct'];
 
 
-    public function getStatus(){
-       
+    public function getStatus()
+    {
+
         $status = '';
 
-        switch($this->ProductStatus){
+        switch ($this->ProductStatus) {
 
             case 0:
                 $status .= 'Deactivated';
-            break;
+                break;
 
             case 1:
                 $status .= 'Active';
-            break;
+                break;
 
             case 2:
                 $status .= '';
-            break;
+                break;
         }
 
         return $status;
     }
-
 }

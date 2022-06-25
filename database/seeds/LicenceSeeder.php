@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Licence;
 use Illuminate\Database\Seeder;
 
 class LicenceSeeder extends Seeder
@@ -11,6 +12,6 @@ class LicenceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Licence::class, 10)->create();
     }
 }

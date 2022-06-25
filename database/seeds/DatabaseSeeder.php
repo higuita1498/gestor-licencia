@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CitySeeder::class,
             ProductSeeder::class,
             PermissionsSeeder::class,
+            LicenceSeeder::class,
         ]);
     }
 }

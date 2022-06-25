@@ -24,18 +24,10 @@ class Partner extends Model
         'PartnerID',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        //
-    ];
 
 
-    public function partnerType()
+    public function users()
     {
-        return $this->belongsTo('App\Models\PartnerType');
+        return $this->hasMany(User::class);
     }
 }
