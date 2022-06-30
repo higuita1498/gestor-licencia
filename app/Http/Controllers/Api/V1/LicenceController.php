@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\V1\UserCollection;
-use App\Models\User;
+use App\Models\Licence;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class LicenceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return new UserCollection(User::paginate());
+        //
     }
 
     /**
@@ -33,10 +32,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Licence  $licence
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Licence $licence)
     {
         //
     }
@@ -45,10 +44,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Licence  $licence
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Licence $licence)
     {
         //
     }
@@ -56,10 +55,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Licence  $licence
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Licence $licence)
     {
         //
     }

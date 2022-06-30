@@ -24,4 +24,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('refresh', 'AuthController@refresh');
 
     Route::apiResource('users', 'UserController');
+    Route::apiResource('licences', 'LicenceController');
 });
