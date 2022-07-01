@@ -55,10 +55,17 @@ class UserController extends Controller
         $licence = Licence::where('LicenseKey', $request->licence)->whereNull('user_id')->first();
 
         if($licence){
-            $user->save();
-            $licence->user_id = $user->id;
-            $licence->UserID = $user->UserID;
-            $licence->update();
+
+            if($licence->ExpirationDate > now()){
+                    $user->save();
+                    $licence->user_id = $user->id;
+                    $licence->UserID = $user->UserID;
+                    $licence->Status = 3;
+                    $licence->update();
+            }else{
+                $errors[] = 'La licencia ya expiro';
+            }
+
         }else{
             $errors[] = 'La licencia no existe o ya esta en uso';
         }
