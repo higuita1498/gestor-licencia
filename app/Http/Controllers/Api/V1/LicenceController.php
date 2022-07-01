@@ -21,6 +21,15 @@ class LicenceController extends Controller
     public function index($skip = 0, $take = 100)
     {
         //
+
+        if(request()->skip){
+            $skip = request()->skip;
+        }
+
+        if(request()->take){
+            $take = request()->take;
+        }
+
         $licences = Licence::with('product', 'partner', 'user')->skip($skip)->take($take)->get();
 
         return response()->json(['success' => true,
