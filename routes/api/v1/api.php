@@ -23,6 +23,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
 
-    Route::apiResource('users', 'UserController');
-    Route::apiResource('licences', 'LicenceController');
+   
 });
+
+Route::apiResource('users', 'UserController');
+Route::apiResource('licences', 'LicenceController');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Licence;
 use App\Models\Partner;
@@ -39,8 +40,9 @@ class LicenceController extends Controller
      */
     public function store(Request $request)
     {
+        
         try {
-
+            $licence = null;
             DB::beginTransaction();
 
             $product = Product::find($request->product_id);
@@ -58,6 +60,9 @@ class LicenceController extends Controller
 
             DB::commit();
 
+            if(!$licence){
+                abort(403, 'El numero de licencia no es valido');
+            }
 
             $response = response()->json(['success' => true,
                                     'message' => 'Licencia registrada correctamente',
@@ -66,15 +71,14 @@ class LicenceController extends Controller
             ]);
 
         } catch (\Throwable $th) {
-
             $response = response()->json(['success' => false,
-                                     'message' => 'La licencia no se pudo crear',
-                                     'data' => null,
-                                     'errors' => $th->getMessage(),
-                                     'type' => 'object'
-            ]);
+                                            'message' => 'La licencia no se pudo crear',
+                                            'data' => null,
+                                            'errors' => $th->getMessage(),
+                                            'type' => 'object'
+                                        ]);
         }
-
+     
         return $response;
     }
 
