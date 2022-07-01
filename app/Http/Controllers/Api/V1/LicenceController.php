@@ -69,7 +69,8 @@ class LicenceController extends Controller
 
             $response = response()->json(['success' => false,
                                      'message' => 'La licencia no se pudo crear',
-                                     'data' => $th->getMessage(),
+                                     'data' => null,
+                                     'errors' => $th->getMessage(),
                                      'type' => 'object'
             ]);
         }

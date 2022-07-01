@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\V1\UserCollection;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Licence;
 
 class UserController extends Controller
 {
@@ -27,7 +29,56 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $errors = [];
+
+        $validator = Validator::make($request->all(), [
+            'UserID' => 'required|unique:users|max:255',
+            'UserName' => 'required',
+            'password' => 'required',
+            'UserContactNumber' => 'required',
+            'licence' => 'required'
+        ]);
+ 
+        if ($validator->fails()) {
+            $errors = $validator;
+        }
+
+        $user = new User();
+        $user->UserID = $request->UserID;
+        $user->UserName = $request->UserName;
+        $user->password = bcrypt($request->password);
+        $user->partner_id = $request->partner_id;
+        $user->city_id = $request->city_id;
+        $user->UserContactNumber = $request->UserContactNumber;
+
+        $licence = Licence::where('LicenseKey', $request->licence)->whereNull('user_id')->first();
+
+        if($licence){
+            $user->save();
+            $licence->user_id = $user->id;
+            $licence->UserID = $user->UserID;
+            $licence->update();
+        }else{
+            $errors[] = 'La licencia no existe o ya esta en uso';
+        }
+
+    
+        if(count($errors) > 0){
+            return response()->json(['success' => false,
+                                    'message' => 'No fue posible registrar el usuario',
+                                    'data' => [],
+                                    'errors' => $errors,
+                                    'type' => 'array',
+            ]);
+        }
+
+        
+        return response()->json(['success' => true,
+                                 'message' => 'Usuario creado con éxito.',
+                                 'data' => $user,
+                                 'type' => 'object'
+        ]);
     }
 
     /**
