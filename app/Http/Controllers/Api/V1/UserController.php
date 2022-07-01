@@ -34,16 +34,18 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), [
             'UserID' => 'required|unique:users|max:255',
-            'UserName' => 'required',
+            'UserName' => 'required|unique:users|max:255',
             'password' => 'required',
             'UserContactNumber' => 'required',
             'licence' => 'required'
         ]);
  
         if ($validator->fails()) {
-            $errors = $validator;
+            foreach($validator->errors()->all() as $error){
+                $errors[] = $error;
+            }
         }
-
+       
         $user = new User();
         $user->UserID = $request->UserID;
         $user->UserName = $request->UserName;
@@ -54,9 +56,8 @@ class UserController extends Controller
 
         $licence = Licence::where('LicenseKey', $request->licence)->whereNull('user_id')->first();
 
-        if($licence){
-
-            if($licence->ExpirationDate > now()){
+        if($licence && $validator->fails() == false){
+            if($licence->ExpirationDate == null || (now()->diffInSeconds($licence->ExpirationDate, false) > 0)){
                     $user->save();
                     $licence->user_id = $user->id;
                     $licence->UserID = $user->UserID;
