@@ -36,7 +36,7 @@
                                     <span class="badge badge-danger">Inactivo</span>
                                     @endif
                                 </td>
-                                <td>{{ $partner->created_at }}</td>
+                                <td>{{ $partner->format_created_date }}</td>
                                 <td>
                                     <a href="{{ route('partners.edit', $partner) }}" class="btn btn-sm btn-primary">Editar</a>
                                     <a class="btn btn-sm btn-danger" onclick="deletePartner('partner-{{ $partner->id }}')">Eliminar</a>

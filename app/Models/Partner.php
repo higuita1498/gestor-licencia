@@ -25,6 +25,11 @@ class Partner extends Model
     ];
 
 
+    public function getFormatCreatedDateAttribute()
+    {
+        return $this->created_at ? $this->created_at->format('Y-m-d') : null;
+    }
+
 
     public function users()
     {
