@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Partner;
-use App\Models\PartnerType;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -39,17 +38,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-            $request->validate([
-                'ProductName' => 'required',
-                'ProductStatus' => 'required',
-                'NumberOfLicenses' => 'required',
-                'LicenseDuration' => 'required',
-                'IdProduct' => 'required'
-            ]);
+        $request->validate([
+            'ProductName' => 'required',
+            'ProductStatus' => 'required',
+            'NumberOfLicenses' => 'required',
+            'LicenseDuration' => 'required',
+            'IdProduct' => 'required'
+        ]);
 
-            $product = Product::create($request->all());
+        $product = Product::create($request->all());
 
-            return back()->withStatus(__('Producto '.$product->ProductName.' creado correctamente.'));
+        return back()->withStatus(__('Producto ' . $product->ProductName . ' creado correctamente.'));
     }
 
     /**
@@ -71,12 +70,6 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
-        if(!$product){
-            return back();
-        }
-
-
         return view('products.edit', compact('product'));
     }
 
@@ -98,9 +91,9 @@ class ProductController extends Controller
             'IdProduct' => 'required'
         ]);
 
-         $product->update($request->all());
+        $product->update($request->all());
 
-         return back()->withStatus(__('Producto '.$product->id.' actualizado correctamente.'));;
+        return back()->withStatus(__('Producto ' . $product->id . ' actualizado correctamente.'));;
     }
 
     /**

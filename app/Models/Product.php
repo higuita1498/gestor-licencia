@@ -13,26 +13,30 @@ class Product extends Model
     ];
 
 
-    public function getStatus()
+    public function getStatusNameAttribute()
     {
 
-        $status = '';
-
-        switch ($this->ProductStatus) {
-
+        switch ((int) $this->ProductStatus) {
             case 0:
-                $status .= 'Deactivated';
+                return 'Desactivated';
                 break;
 
             case 1:
-                $status .= 'Active';
+                return 'Active';
                 break;
 
-            case 2:
-                $status .= '';
+            case null:
+                return '';
+                break;
+
+            default:
+                return $this->status;
                 break;
         }
+    }
 
-        return $status;
+    public function getFormatCreatedDateAttribute()
+    {
+        return $this->created_at ? $this->created_at->format('Y-m-d') : null; 
     }
 }

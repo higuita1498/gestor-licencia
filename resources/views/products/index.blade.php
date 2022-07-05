@@ -15,6 +15,7 @@
                                 <th>Producto</th>
                                 <th>ID</th>
                                 <th>Estado</th>
+                                <th>Fecha de creación</th>
                                 <th># Licencias</th>
                             </tr>
                         </thead>
@@ -23,8 +24,9 @@
                             <tr>
                                 <td>{{ $product->ProductName }}</td>
                                 <td>{{ $product->IdProduct }}</td>
-                                <td>{{ $product->getStatus() }}</td>
-                                <td>{{ $product->NumberOfLicenses }}  | <a href="{{ route('products.edit', $product) }}">edit</a></td>
+                                <td><span class="badge badge-default">{{ $product->status_name }}</span></td>
+                                <td>{{ $product->format_created_date }}</td>
+                                <td>{{ $product->NumberOfLicenses }} | <a href="{{ route('products.edit', $product) }}">edit</a></td>
                             </tr>
                             @endforeach
                         </tbody>
