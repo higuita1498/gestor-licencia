@@ -45,15 +45,14 @@ class LicenceController extends Controller
      */
     public function store(StoreLicenceRequest $request)
     {
-
         try {
 
             DB::beginTransaction();
 
             $product = Product::find($request->product_id);
             $partner = Partner::find($request->partner_id);
-
-            for ($i = 0; $i < $request->licencesNumber; $i++) {
+            $cantidad = $request->licencesNumber * $product->NumberOfLicenses;
+            for ($i = 0; $i < $cantidad; $i++) {
                 Licence::create([
                     'LicenseKey' => Str::uuid(),
                     'ProductID' => $product->ProductID,

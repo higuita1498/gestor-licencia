@@ -27,14 +27,14 @@
                             @foreach ($licences as $licence)
                             <tr>
                                 <td>{{ $licence->LicenseKey }}</td>
-                                <td>{{ optional($licence->product)->ProductName }}</td>
-                                <td>{{ optional($licence->partner)->PartnerName }}</td>
+                                <td>{{ optional($licence->product)->ProductName }} - {{optional($licence->product)->ProductID}}</td>
+                                <td>{{ optional($licence->partner)->PartnerName }} - {{optional($licence->partner)->PartnerID}}</td>
                                 <td>{{ $licence->MasterCode }}</td>
                                 <td>{{ optional($licence->user)->UserID }}</td>
                                 <td><span class="badge badge-default">{{ $licence->status_name }}</span></td>
                                 <td>{{ $licence->format_expiration_date  }}</td>
                                 <td>
-                                    <a href="{{ route('licences.show', $licence)     }}" class="btn btn-primary btn-sm">Consultar</a>
+                                    <a href="{{ route('licences.show', $licence)     }}" class=""><i class="tim-icons icon-zoom-split"></i></a>
                                 </td>
                             </tr>
                             @endforeach

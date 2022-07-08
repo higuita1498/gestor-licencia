@@ -56,11 +56,12 @@ class LicenceController extends Controller
 
             $product = Product::find($request->product_id);
             $partner = Partner::find($request->partner_id);
+            $cantidad = $request->licencesNumber * $product->NumberOfLicenses;
 
-            for ($i = 0; $i < $request->licencesNumber; $i++) {
+            for ($i = 0; $i < $cantidad; $i++) {
                 $licence = Licence::create([
                     'LicenseKey' => Str::uuid(),
-                    'ProductID' => $product->ProductID,
+                    'ProductID' => $product->IdProduct,
                     'product_id' => $product->id,
                     'PartnerID' => $partner->PartnerID,
                     'partner_id' => $partner->id,

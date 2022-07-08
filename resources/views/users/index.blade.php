@@ -38,8 +38,8 @@
                                 </td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>
-                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-primary">Editar</a>
-                                    <a class="btn btn-sm btn-danger" onclick="deleteUser('delete-{{ $user->id }}')">Eliminar</a>
+                                    <a title="Editar" href="{{ route('users.edit', $user) }}"><i class="tim-icons icon-pencil"></i></a>
+                                    <a title="Eliminar" href="#" onclick="deleteUser('delete-{{ $user->id }}')"><i class="tim-icons icon-simple-remove"></i></a>
                                     <form action="{{ route('users.destroy', $user) }}" method="POST" class="d-none" id="delete-{{ $user->id }}">
                                         @csrf
                                         @method('DELETE')

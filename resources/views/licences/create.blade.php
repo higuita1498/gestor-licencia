@@ -20,7 +20,7 @@
                                 <label>{{ __('Company') }}</label>
                                 <select type="text" class="form-control" name="partner_id" style="background-color: #2b3553;" title="{{ __('City') }}">
                                     @foreach ($partners as $partner)
-                                    <option value="{{ $partner->id }}" {{ $partner->id == old('partner_id') ? ' selected="selected"' : ''}}>{{ $partner->PartnerName }}</option>
+                                    <option value="{{ $partner->id }}" {{ $partner->id == old('partner_id') ? ' selected="selected"' : ''}}>{{ $partner->PartnerName }} - {{$partner->PartnerID}}</option>
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'partner_id'])
@@ -31,7 +31,7 @@
                                 <label>{{ __('Product') }}</label>
                                 <select type="text" class="form-control" name="product_id" style="background-color: #2b3553;" title="{{ __('Products') }}">
                                     @foreach ($products as $product)
-                                    <option value="{{ $product->id }}" {{ $product->id == old('product_id') ? ' selected="selected"' : ''}}>{{ $product->ProductName }}</option>
+                                    <option value="{{ $product->id }}" {{ $product->id == old('product_id') ? ' selected="selected"' : ''}}>{{ $product->ProductName }} - {{$product->ProductID}}</option>
                                     @endforeach
                                 </select>
                                 @include('alerts.feedback', ['field' => 'product_id'])

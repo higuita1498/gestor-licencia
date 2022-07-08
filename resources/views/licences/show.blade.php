@@ -19,12 +19,12 @@
                             </tr>
                             <tr>
                                 <th class="title text-white">Producto</th>
-                                <td>{{ optional($licence->product)->ProductName }}</td>
+                                <td>{{ optional($licence->product)->ProductName }} - {{optional($licence->product)->ProductID}}</td>
                             </tr>
 
                             <tr>
                                 <th class="title text-white"> Socio</th>
-                                <td>{{ optional($licence->partner)->PartnerName }}</td>
+                                <td>{{ optional($licence->partner)->PartnerName }} - {{optional($licence->partner)->PartnerID}}</td>
                             </tr>
                             <tr>
                                 <th class="title text-white"> Código Maestro</th>

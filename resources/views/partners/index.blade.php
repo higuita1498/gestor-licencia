@@ -38,8 +38,8 @@
                                 </td>
                                 <td>{{ $partner->format_created_date }}</td>
                                 <td>
-                                    <a href="{{ route('partners.edit', $partner) }}" class="btn btn-sm btn-primary">Editar</a>
-                                    <a class="btn btn-sm btn-danger" onclick="deletePartner('partner-{{ $partner->id }}')">Eliminar</a>
+                                    <a title="Editar" href="{{ route('partners.edit', $partner) }}"><i class="tim-icons icon-pencil"></i></a>
+                                    <a href="#" title="Eliminar" onclick="deletePartner('partner-{{ $partner->id }}')"><i class="tim-icons icon-simple-remove"></i></a>
                                     <form action="{{ route('partners.destroy', $partner) }}" method="POST" class="d-none" id="partner-{{ $partner->id }}">
                                         @csrf
                                         @method('DELETE')
