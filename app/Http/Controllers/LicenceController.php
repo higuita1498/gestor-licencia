@@ -56,7 +56,7 @@ class LicenceController extends Controller
             for ($i = 0; $i < $request->licencesNumber; $i++) {
                 Licence::create([
                     'LicenseKey' => Str::uuid(),
-                    'ProductID' => $product->IdProduct,
+                    'ProductID' => $product->ProductID,
                     'product_id' => $product->id,
                     'PartnerID' => $partner->PartnerID,
                     'partner_id' => $partner->id,

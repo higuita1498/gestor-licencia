@@ -15,7 +15,7 @@ $factory->define(Licence::class, function (Faker $faker) {
 
     return [
         'LicenseKey' => $faker->unique()->uuid(),
-        'ProductID' => $product->IdProduct,
+        'ProductID' => $product->ProductID,
         'product_id' => $product->id,
         'Status' => $licenceStatus,
         'PartnerID' => $partner->PartnerID,

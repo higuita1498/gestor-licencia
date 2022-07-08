@@ -9,7 +9,7 @@ class Product extends Model
 
     protected $fillable = [
         'ProductStatus', 'ProductName', 'NumberOfLicenses',
-        'LicenseDuration', 'IdProduct'
+        'LicenseDuration', 'ProductID'
     ];
 
 

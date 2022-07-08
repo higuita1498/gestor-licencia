@@ -23,7 +23,7 @@
                             @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->ProductName }}</td>
-                                <td>{{ $product->IdProduct }}</td>
+                                <td>{{ $product->ProductID }}</td>
                                 <td><span class="badge badge-default">{{ $product->status_name }}</span></td>
                                 <td>{{ $product->format_created_date }}</td>
                                 <td>{{ $product->NumberOfLicenses }} | <a href="{{ route('products.edit', $product) }}">edit</a></td>

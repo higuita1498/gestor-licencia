@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('ProductName')->nullable(); 
             $table->integer('NumberOfLicenses')->nullable(); 
             $table->integer('LicenseDuration')->nullable(); 
-            $table->string('IdProduct');
+            $table->string('ProductID');
             $table->timestamps();
         });
     }

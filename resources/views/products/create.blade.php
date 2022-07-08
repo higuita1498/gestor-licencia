@@ -57,8 +57,8 @@
                         <div class="mx-md-1 col-md-5">
                             <div class="form-group">
                                 <label>{{ __('ID del producto') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('ID del producto') }}" name="IdProduct" value="">
-                                @include('alerts.feedback', ['field' => 'IdProduct'])
+                                <input type="text" class="form-control" placeholder="{{ __('ID del producto') }}" name="ProductID" value="">
+                                @include('alerts.feedback', ['field' => 'ProductID'])
                             </div>
                         </div>
 

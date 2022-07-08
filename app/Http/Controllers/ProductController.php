@@ -43,7 +43,7 @@ class ProductController extends Controller
             'ProductStatus' => 'required',
             'NumberOfLicenses' => 'required',
             'LicenseDuration' => 'required',
-            'IdProduct' => 'required'
+            'ProductID' => 'required'
         ]);
 
         $product = Product::create($request->all());
@@ -88,7 +88,7 @@ class ProductController extends Controller
             'ProductStatus' => 'required',
             'NumberOfLicenses' => 'required',
             'LicenseDuration' => 'required',
-            'IdProduct' => 'required'
+            'ProductID' => 'required'
         ]);
 
         $product->update($request->all());
