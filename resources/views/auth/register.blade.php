@@ -2,6 +2,16 @@
 
 @section('content')
 <div class="row">
+
+    @php  
+        // temporal mientras se rediseña el formulario de registro desde la WEB, 
+        // los usuarios de momento podran activarse o registrarse desde la APP
+        if(!(request()->ajax())){
+            exit(0);
+            return back();
+        }
+    
+    @endphp
     <div class="col-md-5 ml-auto">
         <div class="info-area info-horizontal mt-5">
             <div class="icon icon-warning">

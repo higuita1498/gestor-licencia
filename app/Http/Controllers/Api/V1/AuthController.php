@@ -33,6 +33,11 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
+        
+        if(!($request->ajax())){
+            exit(0);
+            return back();
+        }
        
         $user = User::create([
             'UserName' => $request->UserName,

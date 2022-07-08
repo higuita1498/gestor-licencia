@@ -28,9 +28,11 @@
                 @guest
 
                 <li class="nav-item ">
+                    {{-- EL REGISTRO SOLO SE PODRA HACER DESDE LA APP HASTA QUE EXISTA UN DISEÑO WEB
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ __('Register') }}
                     </a>
+                    --}}
                 </li>
                 <li class="nav-item ">
                     <a href="{{ route('login') }}" class="nav-link">
