@@ -61,4 +61,25 @@ class Licence extends Model
     {
         return $this->ExpirationDate ? $this->ExpirationDate->format('Y-m-d') : null; 
     }
+
+    public function automaticActivation($user = null){
+
+        $product = $this->product;
+
+        if($user){
+            $this->user_id = $user->id;
+            $this->UserID = $user->UserID;
+        }
+
+        
+        if($product){
+            if($product->LicenseDuration){
+                $now = now();
+                $this->ExpirationDate = ($now->addMonths($product->LicenseDuration));
+                $this->Status = 3;
+                $this->update();
+            }
+        }
+
+    }
 }

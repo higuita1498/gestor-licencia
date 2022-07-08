@@ -59,10 +59,7 @@ class UserController extends Controller
         if($licence && $validator->fails() == false){
             if($licence->ExpirationDate == null || (now()->diffInSeconds($licence->ExpirationDate, false) > 0)){
                     $user->save();
-                    $licence->user_id = $user->id;
-                    $licence->UserID = $user->UserID;
-                    $licence->Status = 3;
-                    $licence->update();
+                    $licence->automaticActivation($user);
             }else{
                 $errors[] = 'La licencia ya expiro';
             }
