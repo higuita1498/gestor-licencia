@@ -27,7 +27,7 @@
                                 <td>{{ $product->ProductID }}</td>
                                 <td><span class="badge badge-default">{{ $product->status_name }}</span></td>
                                 <td>{{ $product->format_created_date }}</td>
-                                <td>{{ $product->NumberOfLicenses }}>edit</a></td>
+                                <td>{{ $product->NumberOfLicenses }}</a></td>
                                 <td><a href="{{ route('products.edit', $product) }}"><i class="tim-icons icon-pencil"></i></a></td>
                             </tr>
                             @endforeach
