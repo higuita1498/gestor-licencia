@@ -42,7 +42,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ __('PartnerID') }}</label>
-                                <input type="text" class="form-control" placeholder="{{ __('PartnerID') }}" name="PartnerID" value="{{ old('PartnerID') }}" required>
+                                <input type="text" class="form-control" placeholder="{{ __('PartnerID') }}" name="PartnerID" id="PartnerID" value="{{ old('PartnerID') }}" onkeyup="calcularDv(this.value)" required>
                                 @include('alerts.feedback', ['field' => 'PartnerID'])
                             </div>
                         </div>
@@ -108,4 +108,8 @@
 
     </div>
 </form>
+
+@push('js')
+    <script src="{{ asset('js/lowerScripts/validate-identification.js') }}"></script>
+@endpush
 @endsection
