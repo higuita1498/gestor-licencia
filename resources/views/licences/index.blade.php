@@ -35,6 +35,11 @@
                                 <td>{{ $licence->format_expiration_date  }}</td>
                                 <td>
                                     <a href="{{ route('licences.show', $licence)     }}" class=""><i class="tim-icons icon-zoom-split"></i></a>
+                                    <a title="Eliminar" href="#" onclick="deleteLicence('delete-{{ $licence->id }}', '{{optional($licence->user)->UserName}}')"><i class="tim-icons icon-simple-remove"></i></a>
+                                    <form action="{{ route('licences.destroy', $licence) }}" method="POST" class="d-none" id="delete-{{ $licence->id }}">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -51,10 +56,10 @@
 
 @push('js')
 <script>
-    function deleteLicence(partner) {
+    function deleteLicence(licence, user) {
         Swal.fire({
-            title: '¿Estas seguro?',
-            text: "Se eliminará la licencia seleccionada",
+            title: (user ? '¡Ojo licencia habilitada!' : '¿Estas seguro?'),
+            text: "Se eliminará la licencia seleccionada " + (user ? 'del usuario '+user : ''),
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -63,7 +68,7 @@
             cancelButtonText: 'Cancelar',
         }).then((result) => {
             if (result.value) {
-                $(`#${partner}`).submit();
+                $(`#${licence}`).submit();
             }
         })
     }

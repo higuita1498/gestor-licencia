@@ -118,6 +118,15 @@ class LicenceController extends Controller
      */
     public function destroy(Licence $licence)
     {
-        //
+
+        if(!$licence){
+            return back();
+        }
+
+        $licence->delete();
+
+        return redirect()
+            ->route('licences.index')
+            ->withStatus(__('Licencia eliminada correctamente.'));
     }
 }
