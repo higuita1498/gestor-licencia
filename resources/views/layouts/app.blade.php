@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <link rel="stylesheet" href="{{ asset('css/nice-select2.css') }}">
         <title>{{ config('app.name', 'License Manager') }}</title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('dark/img/apple-icon.png') }}">
@@ -89,6 +89,7 @@
             </div>
         </div>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/plugins/nice-select2.js') }}"></script>
         <!-- <script src="{{ asset('dark/js/core/jquery.min.js') }}"></script> -->
         <!-- <script src="{{ asset('dark/js/core/popper.min.js') }}"></script> -->
         <!-- <script src="{{ asset('dark/js/core/bootstrap.min.js') }}"></script> -->
@@ -200,6 +201,13 @@
                     });
                 });
             });
+        </script>
+        <script>
+             $(document).ready(function() {
+                $('select').each(function(){
+                        NiceSelect.bind(this, {searchable: true});
+                });
+             });
         </script>
         @stack('js')
     </body>
