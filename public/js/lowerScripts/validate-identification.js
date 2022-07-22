@@ -72,6 +72,9 @@ function  calcularDigitoVerificacion ( myNit )  {
                 nit = nit.replace(' ', '').trim();
                 nit = nit.split('-');
                 $('#PartnerID').val(nit[0]);
+                setTimeout(function(){
+                    calcularDv($('#PartnerID').val());
+                }, 1000);
             }
 
         clearTimeout(timeout)
